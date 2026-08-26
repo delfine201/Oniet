@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> LOGIN </title>
+<!-- IONICONS -->
+<script type="module"
+src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+</script>
+<script nomodule
+src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+</script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="bartop">
+    <p id="mode"></p>
+    <button class="theme" id="theme">
+      <ion-icon id="itheme" name="moon"></ion-icon>
+    </button>
+  </div>
+
+  <main class="acount">
+    <div class="create_acount active">
+      <div class="dates active">
+        <!--<div class="B_C_" >
+          <button class="B_I_" > A </button>
+          <button class="B_I_" > A </button>
+          <button class="B_I_" > A </button> 
+        </div>-->
+        <p class="date">Nombre/s:</p>
+        <textarea ></textarea>
+        <p class="date">Apellido/s:</p>
+        <textarea ></textarea>
+        <p class="date">Fecha de nacimiento:</p>
+        <input type="date" max="115">
+        <p class="date">Gmail:</p>
+        <input type="email" placeholder="tugmail@gmail.com">
+        <footer class="buttons">
+          <button class="bcancel">Cancelar</button>
+          <button class="bnext">Siguiente</button>
+        </footer>
+      </div>
+      <div class="password">
+        <p class="date">Cree una contraseña: </p>
+        <input class="password1" type="password">
+        <p class="date">Confirme la contraseña:</p>
+        <input class="password1" type="password">
+        <div class="check">
+          <div class="checkbox">
+            <ion-icon style="opacity: 0" class="imostrar" name="checkmark-done"></ion-icon>
+          </div> 
+          Mostrar Contraseña
+        </div>
+        <footer class="buttons">
+          <button class="bcancel back">Volver</button>
+          <button class="bcreate">Crear Cuenta</button>
+        </footer>
+      </div>
+    </div>
+    <div class="login">
+      <div class="dates active">
+        <!--<div class="B_C_" >
+          <button class="B_I_" > A </button>
+          <button class="B_I_" > A </button>
+          <button class="B_I_" > A </button> 
+        </div>
+        <p class="date">Nombre/s:</p>
+        <textarea ></textarea>
+        <p class="date">Apellidos:</p>
+        <textarea ></textarea>
+        <p class="date">Fecha de nacimiento:</p>
+        <input type="date" max="115">-->
+        <p class="date">Gmail:</p>
+        <input type="email" placeholder="tugmail@gmail.com">
+        <!--<footer class="buttons">
+          <button class="bcancel">Cancelar</button>
+          <button class="bnext">Siguiente</button>
+        </footer>
+      </div>
+      <div class="password active">-->
+        <p class="date">Ingrese su contraseña: </p>
+        <input class="password1" type="password">
+        <!--<p class="date">Confirme la contraseña:</p>
+        <input class="password1" type="password">-->
+        <div class="check">
+          <div class="checkbox">
+            <ion-icon style="opacity: 0" class="imostrar" name="checkmark-done"></ion-icon>
+          </div> 
+          Mostrar Contraseña
+        </div>
+        <footer class="buttons">
+          <button class="bcancel">Cancelar</button>
+          <button class="bcreate">Iniciar Sesión</button>
+        </footer>
+      </div>
+      <div class="password active"></div>
+    </div>
+    <div id="circulo" class="circulo">
+      <div class="panel">
+        <h2 id="txtm">¿Ya tienes cuenta?</h2>
+        <button id="bcm" class="bcm">Inicia Sesión</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="zone">
+
+
+    <!-- BOTÓN CENTRAL -->
+
+    <div class="navigation">
+      <ion-icon id="menu" name="menu"></ion-icon>
+    </div>
+
+    <!-- ARRIBA -->
+
+    <div class="item" style="--x:0; --y:-1;">
+
+      <ion-icon name="home"></ion-icon>
+
+    </div>
+    
+    <div class="item" style="--x:1; --y:-1;">
+
+      <ion-icon name="settings"></ion-icon>
+
+    </div>
+
+    <!-- DERECHA -->
+
+    <div class="item" style="--x:1; --y:0;">
+
+      <ion-icon name="search"></ion-icon>
+
+    </div>
+
+    <div class="item" style="--x:1; --y:1;">
+
+      <ion-icon name="person"></ion-icon>
+
+    </div>
+
+    <!-- ABAJO -->
+
+    <div class="item" style="--x:0; --y:1;">
+
+      <ion-icon name="lock-open"></ion-icon>
+
+    </div>
+
+    <div class="item" style="--x:-1; --y:1;">
+
+      <ion-icon name="trash"></ion-icon>
+
+    </div>
+
+    <!-- IZQUIERDA -->
+
+    <div class="item" style="--x:-1; --y:0;">
+
+      <ion-icon name="folder"></ion-icon>
+
+    </div>
+    
+    <div class="item" style="--x:-1;--y:-1">
+      <ion-icon name="wifi"></ion-icon>
+    </div>
+
+  </div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
