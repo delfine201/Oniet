@@ -141,7 +141,7 @@ article {
     justify-content: center;
     align-items: center;
 
-    width: clamp(500px, 30%, 1000px);
+    width: clamp(350px, 30%, 1000px);
     padding: 10px;
 
     background-color: var(--special);
