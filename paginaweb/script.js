@@ -72,6 +72,8 @@ botonQR.addEventListener("click", async () => {
             },
             (textoQR) => {
                 console.log("3. QR detectado:", textoQR);
+
+                inputId.value = textoQR;
             },
             (error) => {
                 // Los errores de "no encontré un QR en este frame"
