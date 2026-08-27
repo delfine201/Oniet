@@ -321,6 +321,7 @@ textarea, input {
   transition: 0.5s;
   transform: translateY(0);
   border: 1px dashed var(--border);
+  color: var(--text);
 }
 
 textarea::placeholder, input::placeholder{
