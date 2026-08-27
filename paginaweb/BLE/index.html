@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONIET BLE</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>ONIET BLE</h1>
+
+    <button id="connect">Conectar</button>
+
+    <br><br>
+
+    <input id="message" type="text" placeholder="Mensaje">
+
+    <button id="send">Enviar</button>
+
+    <p id="status">Desconectado</p>
+
+    <script>
+
+        let device;
+        let characteristic;
+
+        const SERVICE_UUID = "0000ffe0-0000-1000-8000-00805f9b34fb";
+        const CHARACTERISTIC_UUID = "0000ffe1-0000-1000-8000-00805f9b34fb";
+
+
+        document.getElementById("connect").addEventListener("click", async () => {
+
+            try {
+
+                device = await navigator.bluetooth.requestDevice({
+                    filters: [
+                        { services: [SERVICE_UUID] }
+                    ]
+                });
+
+                document.getElementById("status").textContent =
+                    "Conectando...";
+
+                const server = await device.gatt.connect();
+
+                const service =
+                    await server.getPrimaryService(SERVICE_UUID);
+
+                characteristic =
+                    await service.getCharacteristic(CHARACTERISTIC_UUID);
+
+                document.getElementById("status").textContent =
+                    "🟢 Conectado a " + device.name;
+
+            } catch (error) {
+
+                console.error(error);
+
+                document.getElementById("status").textContent =
+                    "❌ Error: " + error.message;
+            }
+
+        });
+
+
+        document.getElementById("send").addEventListener("click", async () => {
+
+            if (!characteristic) {
+                alert("Primero conectá el Bluetooth");
+                return;
+            }
+
+            const message =
+                document.getElementById("message").value;
+
+            const encoder = new TextEncoder();
+
+            const data = encoder.encode(message);
+
+            await characteristic.writeValue(data);
+
+            console.log("Enviado:", message);
+
+        });
+
+    </script>
+
+</body>
+</html>
