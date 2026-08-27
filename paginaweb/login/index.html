@@ -25,21 +25,35 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
   </div>
 
   <main class="acount">
-    <div class="create_acount active">
+    <article class="create_acount active">
       <div class="dates active">
-        <!--<div class="B_C_" >
-          <button class="B_I_" > A </button>
-          <button class="B_I_" > A </button>
-          <button class="B_I_" > A </button> 
-        </div>-->
         <p class="date">Nombre/s:</p>
-        <textarea ></textarea>
+        <textarea id="nombre" placeholder="Nombre/s"></textarea>
+
         <p class="date">Apellido/s:</p>
-        <textarea ></textarea>
+        <textarea id="apellido" placeholder="Apellido/s"></textarea>
+
         <p class="date">Fecha de nacimiento:</p>
-        <input type="date" max="115">
+        <input id="fechaNacimiento" type="date">
+
         <p class="date">Gmail:</p>
-        <input type="email" placeholder="tugmail@gmail.com">
+        <input id="emailRegistro" type="email" placeholder="tugmail@gmail.com">
+
+        <footer class="buttons">
+          <button class="bcancel">Cancelar</button>
+          <button class="bnext">Siguiente</button>
+        </footer>
+      </div>
+      <div class="medics">
+        <p class="date">DNI:</p>
+        <input id="dni" type="text" inputmode="numeric" placeholder="DNI">
+
+        <p class="date">Alergias:</p>
+        <textarea id="alergias" placeholder="Ej: ninguna"></textarea>
+
+        <p class="date">Enfermedades:</p>
+        <textarea id="enfermedades" placeholder="Ej: ninguna"></textarea>
+
         <footer class="buttons">
           <button class="bcancel">Cancelar</button>
           <button class="bnext">Siguiente</button>
@@ -47,9 +61,9 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
       </div>
       <div class="password">
         <p class="date">Cree una contraseña: </p>
-        <input class="password1" type="password">
+        <input id="passwordRegistro" class="password1" type="password">
         <p class="date">Confirme la contraseña:</p>
-        <input class="password1" type="password">
+        <input id="passwordConfirmacion" class="password1" type="password">
         <div class="check">
           <div class="checkbox">
             <ion-icon style="opacity: 0" class="imostrar" name="checkmark-done"></ion-icon>
@@ -61,8 +75,8 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
           <button class="bcreate">Crear Cuenta</button>
         </footer>
       </div>
-    </div>
-    <div class="login">
+    </article>
+    <article class="login">
       <div class="dates active">
         <!--<div class="B_C_" >
           <button class="B_I_" > A </button>
@@ -76,7 +90,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
         <p class="date">Fecha de nacimiento:</p>
         <input type="date" max="115">-->
         <p class="date">Gmail:</p>
-        <input type="email" placeholder="tugmail@gmail.com">
+        <input id="emailLogin" type="email" placeholder="tugmail@gmail.com">
         <!--<footer class="buttons">
           <button class="bcancel">Cancelar</button>
           <button class="bnext">Siguiente</button>
@@ -84,7 +98,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
       </div>
       <div class="password active">-->
         <p class="date">Ingrese su contraseña: </p>
-        <input class="password1" type="password">
+        <input id="passwordLogin" class="password1" type="password">
         <!--<p class="date">Confirme la contraseña:</p>
         <input class="password1" type="password">-->
         <div class="check">
@@ -99,13 +113,13 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
         </footer>
       </div>
       <div class="password active"></div>
-    </div>
-    <div id="circulo" class="circulo">
+    </article>
+    <footer id="circulo" class="circulo">
       <div class="panel">
         <h2 id="txtm">¿Ya tienes cuenta?</h2>
         <button id="bcm" class="bcm">Inicia Sesión</button>
       </div>
-    </div>
+    </footer>
   </main>
 
   <div class="zone">

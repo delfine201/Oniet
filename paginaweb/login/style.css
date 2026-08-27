@@ -103,6 +103,24 @@ body {
   /*border: 1px solid goldenrod;*/
 }
 
+.medics {
+  display:none;
+}
+
+.medics.active {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  /*border: 1px solid goldenrod;*/
+}
+
 .password {
   display: none;
 }
@@ -490,6 +508,15 @@ textarea:focus, input:focus {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: repeat(3, 1fr);
     }
+    .medics.active {
+      display: grid;
+    
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+    
+      width: 100%;
+      padding: 0 20px;
+    }
     .password.active{
       display: grid;
     
@@ -657,6 +684,15 @@ textarea:focus, input:focus {
       width: 100%;
       padding: 0 20px;
     }
+    .medics.active {
+      display: grid;
+    
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+    
+      width: 100%;
+      padding: 0 20px;
+    }
     .login.active .dates.active {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: repeat(3, 1fr);
@@ -813,6 +849,18 @@ textarea:focus, input:focus {
     height: 60%;
     margin-bottom: 15%;
   }
+  .medics.active {
+    display: grid;
+  
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  
+    width: 100%;
+    padding: 0 20px;
+
+    height: 60%;
+    margin-bottom: 15%;
+  }
   .login.active .dates.active {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
@@ -946,6 +994,18 @@ textarea:focus, input:focus {
   .login.active .dates.active {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
+  }
+  .medics.active {
+    display: grid;
+  
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  
+    width: 100%;
+    padding: 0 20px;
+
+    height: 80%;
+    margin-bottom: 20px;
   }
   .acount:has(.create_acount.active){
     justify-content: flex-start;
