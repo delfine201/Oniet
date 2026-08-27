@@ -5,25 +5,29 @@
 }
 
 :root.dark {
-  --background: #20251d;
-  --surface:#2b3226;
-  --panel:#384321;
-  --special:#78905f;
-  --border:#58654a;
-  --border-special: #a87573;
-  --text: #e3e0cf;
-  --text-special: #dfbcbc;
+
+  --background: #071014;       /* Fondo general */
+  --surface:    #0D1B20;       /* Tarjetas / contenedores */
+  --panel:      #122830;       /* Paneles / inputs */
+  --special:    #16C7C1;       /* Turquesa principal */
+  --border:     #237B88;       /* Bordes */
+  --border-special: #E5484D;   /* Rojo: alertas / acciones críticas */
+  --text:       #F2F7F7;       /* Texto principal */
+  --text-special: #8BE9E5;     /* Texto secundario / acentos */
+
 }
 
 :root.light {
-  --background: #e1faf9;
-  --surface:#0ad3ff;
-  --panel: #99ffe0;
-  --special:#8d3244;
-  --border:#053033;
-  --border-special:#a97876;
-  --text:#3b3c32;
-  --text-special: #ead1d0;
+
+  --background: #F4FAFA;       /* Fondo general */
+  --surface:    #FFFFFF;       /* Tarjetas / contenedores */
+  --panel:      #E6F3F5;       /* Paneles / inputs */
+  --special:    #0FA7B5;       /* Turquesa principal */
+  --border:     #79C8D0;       /* Bordes */
+  --border-special: #D9363E;   /* Rojo */
+  --text:       #10252B;       /* Texto principal */
+  --text-special: #176B78;     /* Texto secundario */
+
 }
 
 body {
