@@ -226,6 +226,7 @@ buttonCreate.addEventListener("click", async () => {
 
   if (passwordr !== confirmacion) {
     error.textContent = "Las contraseñas no coinciden";
+    buttonCreate.disabled = false;
     return;
   }else {
     error.textContent = "";
@@ -255,7 +256,7 @@ buttonCreate.addEventListener("click", async () => {
     console.error(e);
     error.textContent = e.message;
 
-    botonCrear.disabled = false;
+    buttonCreate.disabled = false;
   }
 
 });
@@ -273,17 +274,20 @@ botonLogin.addEventListener("click", async () => {
       password
     );
 
+    const user = userCredential.user;
+
     const referencia = doc(db, "usuarios", user.uid);
 
     const datos = await getDoc(referencia);
 
     if (datos.exists()) {
-      console.log(datos.data());
+      const usuario = datos.data();
+
+      console.log("Sesión iniciada:", user.uid);
+      console.log("Nombre: ", usuario.nombre);
+      console.log("DNI: ", usuario.dni);
+      console.log("Gmail: ", usuario.email);
     }
-
-    const user = userCredential.user;
-
-    console.log("Sesión iniciada:", user.uid, datos.data().name);
 
   } catch (error) {
 
