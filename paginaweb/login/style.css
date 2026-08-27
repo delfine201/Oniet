@@ -564,8 +564,8 @@ textarea:focus, input:focus {
       gap: 15px;
     }
     .bnext, .bcreate {
-      background: var(--special);
-      border: 1px solid var(--border);
+      background: var(--button);
+      border: 1px solid var(--border-special);
       border-radius: 99px;
 
       width: 100%;
@@ -575,7 +575,7 @@ textarea:focus, input:focus {
     }
     .bcancel {
       background: var(--text-special);
-      border: 1px solid var(--border-special);
+      border: 1px solid var(--border);
       border-radius: 99px;
 
       width: 100%;
@@ -744,8 +744,8 @@ textarea:focus, input:focus {
       gap: 15px;
     }
     .bnext, .bcreate {
-      background: var(--special);
-      border: 1px solid var(--border);
+      background: var(--button);
+      border: 1px solid var(--border-special);
       border-radius: 99px;
 
       width: 100%;
@@ -755,7 +755,7 @@ textarea:focus, input:focus {
     }
     .bcancel {
       background: var(--text-special);
-      border: 1px solid var(--border-special);
+      border: 1px solid var(--border);
       border-radius: 99px;
 
       width: 100%;
@@ -915,8 +915,8 @@ textarea:focus, input:focus {
     gap: 15px;
   }
   .bnext, .bcm, .bcreate {
-    background: var(--special);
-    border: 1px solid var(--border);
+    background: var(--button);
+    border: 1px solid var(--border-special);
     border-radius: 99px;
 
     width: 100%;
@@ -926,7 +926,7 @@ textarea:focus, input:focus {
   }
   .bcancel {
     background: var(--text-special);
-    border: 1px solid var(--border-special);
+    border: 1px solid var(--border);
     border-radius: 99px;
 
     width: 100%;
@@ -1063,8 +1063,8 @@ textarea:focus, input:focus {
     gap: 15px;
   }
   .bnext, .bcm, .bcreate {
-    background: var(--special);
-    border: 1px solid var(--border);
+    background: var(--button);
+    border: 1px solid var(--border-special);
     border-radius: 99px;
 
     width: 100%;
@@ -1074,7 +1074,7 @@ textarea:focus, input:focus {
   }
   .bcancel {
     background: var(--text-special);
-    border: 1px solid var(--border-special);
+    border: 1px solid var(--border);
     border-radius: 99px;
 
     width: 100%;
