@@ -3,6 +3,32 @@
    ABRIR / CERRAR
 ========================= */
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyDJ6IwIxG5rkUfHIFqJ7PTuxJ2vnK66U68",
+authDomain: "menteypulso.firebaseapp.com",
+projectId: "menteypulso",
+storageBucket: "menteypulso.firebasestorage.app",
+messagingSenderId: "817477075455",
+appId: "1:817477075455:web:9a207b6ba92845cef5a7ca"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
 const zone = document.querySelector(".zone");
 
 const navigation = document.querySelector(".navigation");
