@@ -24,104 +24,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
     </button>
   </div>
 
-  <main class="acount">
-    <article class="create_acount active">
-      <div class="dates active">
-        <p class="date">Nombre/s:</p>
-        <textarea id="nombre" placeholder="Nombre/s"></textarea>
-
-        <p class="date">Apellido/s:</p>
-        <textarea id="apellido" placeholder="Apellido/s"></textarea>
-
-        <p class="date">Fecha de nacimiento:</p>
-        <input id="fechaNacimiento" type="date">
-
-        <p class="date">Gmail:</p>
-        <input id="emailRegistro" type="email" placeholder="tugmail@gmail.com">
-
-        <footer class="buttons">
-          <button class="bcancel">Cancelar</button>
-          <button class="bnext">Siguiente</button>
-        </footer>
-      </div>
-      <div class="medics">
-        <p class="date">DNI:</p>
-        <input id="dni" type="text" inputmode="numeric" placeholder="DNI">
-
-        <p class="date">Alergias:</p>
-        <textarea id="alergias" placeholder="Ej: ninguna"></textarea>
-
-        <p class="date">Enfermedades:</p>
-        <textarea id="enfermedades" placeholder="Ej: ninguna"></textarea>
-
-        <footer class="buttons">
-          <button class="bcancel back">Volver</button>
-          <button class="bnext">Siguiente</button>
-        </footer>
-      </div>
-      <div class="password">
-        <p class="date">Cree una contraseña: </p>
-        <input id="passwordRegistro" class="password1" type="password">
-        <p class="date">Confirme la contraseña:</p>
-        <input id="passwordConfirmacion" class="password1" type="password">
-        <div class="check">
-          <div class="checkbox">
-            <ion-icon style="opacity: 0" class="imostrar" name="checkmark-done"></ion-icon>
-          </div> 
-          Mostrar Contraseña
-        </div>
-        <p id="error"></p>
-        <footer class="buttons">
-          <button class="bcancel back">Volver</button>
-          <button class="bcreate">Crear Cuenta</button>
-        </footer>
-      </div>
-    </article>
-    <article class="login">
-      <div class="dates active">
-        <!--<div class="B_C_" >
-          <button class="B_I_" > A </button>
-          <button class="B_I_" > A </button>
-          <button class="B_I_" > A </button> 
-        </div>
-        <p class="date">Nombre/s:</p>
-        <textarea ></textarea>
-        <p class="date">Apellidos:</p>
-        <textarea ></textarea>
-        <p class="date">Fecha de nacimiento:</p>
-        <input type="date" max="115">-->
-        <p class="date">Gmail:</p>
-        <input id="emailLogin" type="email" placeholder="tugmail@gmail.com">
-        <!--<footer class="buttons">
-          <button class="bcancel">Cancelar</button>
-          <button class="bnext">Siguiente</button>
-        </footer>
-      </div>
-      <div class="password active">-->
-        <p class="date">Ingrese su contraseña: </p>
-        <input id="passwordLogin" class="password1" type="password">
-        <!--<p class="date">Confirme la contraseña:</p>
-        <input class="password1" type="password">-->
-        <div class="check">
-          <div class="checkbox">
-            <ion-icon style="opacity: 0" class="imostrar" name="checkmark-done"></ion-icon>
-          </div> 
-          Mostrar Contraseña
-        </div>
-        <footer class="buttons">
-          <button class="bcancel">Cancelar</button>
-          <button class="bcreate">Iniciar Sesión</button>
-        </footer>
-      </div>
-      <div class="password active"></div>
-    </article>
-    <footer id="circulo" class="circulo">
-      <div class="panel">
-        <h2 id="txtm">¿Ya tienes cuenta?</h2>
-        <button id="bcm" class="bcm">Inicia Sesión</button>
-      </div>
-    </footer>
-  </main>
+  <h2> Hola [Nombre] 🌟</h2>
 
   <div class="zone">
 
@@ -133,7 +36,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- ARRIBA -->
 
-    <div class="item" style="--x:0; --y:-1;">
+    <div class="item" style="--angulo: -90deg;">
 
       <ion-icon name="home"></ion-icon>
 
@@ -141,7 +44,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- DERECHA -->
 
-    <div class="item" style="--x:1; --y:0;">
+    <div class="item" style="--angulo: -18deg;">
 
       <ion-icon name="settings"></ion-icon>
 
@@ -149,7 +52,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- ABAJO -->
 
-    <div class="item" style="--x:0; --y:1;">
+    <div class="item" style="--angulo: 54deg;">
 
       <ion-icon name="person"></ion-icon>
 
@@ -157,9 +60,16 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- IZQUIERDA -->
 
-    <div class="item" style="--x:-1; --y:0;">
+    <div class="item" style="--angulo: 126deg;">
 
-      <ion-icon name="folder"></ion-icon>
+      <ion-icon name="bluetooth"></ion-icon>
+
+    </div>
+
+    <div class="item" style="--angulo: 198deg;">
+
+      <ion-icon style="position: absolute; scale: 1.3; z-index: 10;" name="scan-outline"></ion-icon>
+      <ion-icon style="scale: .7; z-index: 5;"name="qr-code-outline"></ion-icon>
 
     </div>
 

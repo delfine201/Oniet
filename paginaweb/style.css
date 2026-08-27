@@ -56,144 +56,11 @@ body {
   font-weight: bold;
 }
 
-.acount {
-  display: none;
+h2 {
+    position: absolute;
 
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-}
-
-.create_acount{
-  display: none;
-}
-
-.create_acount.active {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  /*margin-top: 15%;  */
-  
-  background: var(--surface);
-  width: 60%;
-  height: 100%;
-
-  border-radius: 15px;
-
-  border: 1px dashed var(--border);
-}
-
-.acount:has(.create_acount.active){
-  align-items: flex-start;
-}
-
-.dates {
-  display:none;
-}
-
-.dates.active {
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 15px;
-
-  /*border: 1px solid goldenrod;*/
-}
-
-.medics {
-  display:none;
-}
-
-.medics.active {
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 15px;
-
-  /*border: 1px solid goldenrod;*/
-}
-
-.password {
-  display: none;
-}
-
-.password.active {
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 15px;
-
-  /*border: 1px solid goldenrod;*/
-}
-
-.hidden {
-  display: none;
-}
-
-.login {
-  display: none;
-}
-
-.login.active {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  /*margin-top: 15%;  */
-  
-  background: var(--surface);
-  width: 100%;
-  height: 70%;
-
-  border-radius: 15px;
-
-  border: 1px dashed var(--border);
-}
-
-.acount:has(.login.active){
-  align-items: flex-end;
-}
-
-.B_C_ {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 20px;
-}
-  
-.B_I_ {
-  background: var(--panel);
-
-  backdrop-filter: blur(5px);
-
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
-  border: none;
+    top: calc(0px + 7vh);
+    left: 0;
 }
 
 .buttons {
@@ -1208,10 +1075,7 @@ textarea:focus, input:focus {
   */
 
   transform:
-    translate(
-      calc(var(--x) * 0px),
-      calc(var(--y) * 0px)
-    );
+    translate(0);
 
   transition:
     transform 0.5s,
@@ -1224,13 +1088,13 @@ textarea:focus, input:focus {
 ========================= */
 
 .zone.active .item {
+    --radio: 65px;
 
-  transform:
-    translate(
-      calc(var(--x) * 65px),
-      calc(var(--y) * 65px)
-    );
-
+    transform:
+        translate(
+            calc(cos(var(--angulo)) * var(--radio)),
+            calc(sin(var(--angulo)) * var(--radio))
+        );
 }
 
 
