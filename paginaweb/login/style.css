@@ -1135,7 +1135,7 @@ textarea:focus, input:focus {
 
 ion-icon {
   font-size: 22px;
-  color: #abb;
+  color: var(--text);
 }
 
 #error {

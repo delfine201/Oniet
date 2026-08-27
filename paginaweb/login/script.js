@@ -206,7 +206,7 @@ buttonCreate.addEventListener("click", async () => {
     buttonCreate.disabled = false;
     return;
   }else {
-    error.textContent = "";
+    errort.textContent = "";
   }
 
   try {
@@ -231,7 +231,7 @@ buttonCreate.addEventListener("click", async () => {
   } catch (e) {
 
     console.error(e);
-    error.textContent = e.message;
+    errort.textContent = e.message;
 
     buttonCreate.disabled = false;
   }
