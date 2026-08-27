@@ -66,10 +66,10 @@
                         const mensaje = decoder.decode(value);
                 
                         console.log("Recibido:", mensaje);
-                
+
+                        document.getElementById("received").textContent = "";
                         document.getElementById("received").textContent += mensaje;
 
-                        mensaje = "";
                     }
                 );
 
