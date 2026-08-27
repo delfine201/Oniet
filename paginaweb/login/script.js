@@ -1,13 +1,11 @@
 
-/* =========================
-   ABRIR / CERRAR
-========================= */
-
+// Importamos el firbase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
 import {
   getAuth,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 import {
@@ -16,6 +14,7 @@ import {
   setDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+// configuramos la pagina para que use firebase
 const firebaseConfig = {
 apiKey: "AIzaSyDJ6IwIxG5rkUfHIFqJ7PTuxJ2vnK66U68",
 authDomain: "menteypulso.firebaseapp.com",
@@ -25,16 +24,18 @@ messagingSenderId: "817477075455",
 appId: "1:817477075455:web:9a207b6ba92845cef5a7ca"
 };
 
+// Creamos los objetos para usar firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const zone = document.querySelector(".zone");
+// Creamos los objetos segund sus id o sus clases
+/*const zone = document.querySelector(".zone");*/
 
-const navigation = document.querySelector(".navigation");
+/*const navigation = document.querySelector(".navigation");*/
 
-const menu = document.getElementById("menu");
-let icono = "menu";
+/*const menu = document.getElementById("menu");
+let icono = "menu";*/
 
 const themebutton = document.getElementById("theme");
 const themeicon = document.getElementById("itheme");
@@ -53,14 +54,16 @@ const txtm = document.querySelector("#txtm");
 const create_acount = document.querySelector(".create_acount");
 const login = document.querySelector(".login");
 
+const botonLogin = login.querySelector(".bcreate");
+
 const error = document.getElementById("error");
 
-console.log("navigation:", navigation);
+/*console.log("navigation:", navigation);*/
 console.log("themebutton:", themebutton);
 console.log("buttonNext:", buttonNext);
 console.log("cmostrar:", cmostrar);
 
-navigation.addEventListener("click", () => {
+/*navigation.addEventListener("click", () => {
 
   zone.classList.toggle("active");
   
@@ -72,7 +75,7 @@ navigation.addEventListener("click", () => {
   
   menu.setAttribute("name", icono);
 
-});
+});*/
 
 themebutton.addEventListener ("click", () => {
   if(document.documentElement.classList.contains("light")){
@@ -252,6 +255,34 @@ buttonCreate.addEventListener("click", async () => {
     error.textContent = e.message;
 
     botonCrear.disabled = false;
+  }
+
+});
+
+botonLogin.addEventListener("click", async () => {
+
+  const email = login.querySelector("#emailLogin").value;
+  const password = login.querySelector("#passwordLogin").value;
+
+  try {
+
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    const user = userCredential.user;
+
+    console.log("Sesión iniciada:", user.uid);
+
+  } catch (error) {
+
+    console.error(error);
+
+    document.getElementById("error").textContent =
+      "Correo o contraseña incorrectos";
+
   }
 
 });
