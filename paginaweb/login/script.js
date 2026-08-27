@@ -11,7 +11,8 @@ import {
 import {
   getFirestore,
   doc,
-  setDoc
+  setDoc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 // configuramos la pagina para que use firebase
@@ -271,6 +272,14 @@ botonLogin.addEventListener("click", async () => {
       email,
       password
     );
+
+    const referencia = doc(db, "usuarios", user.uid);
+
+    const datos = await getDoc(referencia);
+
+    if (datos.exists()) {
+      console.log(datos.data().name);
+    }
 
     const user = userCredential.user;
 
