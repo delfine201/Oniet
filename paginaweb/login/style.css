@@ -85,7 +85,7 @@ body {
 
   border-radius: 15px;
 
-  border: 1px dashed var(border);
+  border: 1px dashed var(--border);
 }
 
 .acount:has(.create_acount.active){
@@ -168,7 +168,7 @@ body {
 
   border-radius: 15px;
 
-  border: 1px dashed var(border);
+  border: 1px dashed var(--border);
 }
 
 .acount:has(.login.active){
