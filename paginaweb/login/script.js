@@ -30,14 +30,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Creamos los objetos segund sus id o sus clases
-/*const zone = document.querySelector(".zone");*/
-
-/*const navigation = document.querySelector(".navigation");*/
-
-/*const menu = document.getElementById("menu");
-let icono = "menu";*/
-
 const themebutton = document.getElementById("theme");
 const themeicon = document.getElementById("itheme");
 const txtmode = document.getElementById("mode");
@@ -57,26 +49,11 @@ const login = document.querySelector(".login");
 
 const botonLogin = login.querySelector(".bcreate");
 
-const error = document.getElementById("error");
+const errort = document.getElementById("error");
 
-/*console.log("navigation:", navigation);*/
 console.log("themebutton:", themebutton);
 console.log("buttonNext:", buttonNext);
 console.log("cmostrar:", cmostrar);
-
-/*navigation.addEventListener("click", () => {
-
-  zone.classList.toggle("active");
-  
-  if(zone.classList.contains("active")){
-    icono = "close";
-  }else{
-    icono = "menu";
-  }
-  
-  menu.setAttribute("name", icono);
-
-});*/
 
 themebutton.addEventListener ("click", () => {
   if(document.documentElement.classList.contains("light")){
@@ -225,7 +202,7 @@ buttonCreate.addEventListener("click", async () => {
   const confirmacion = document.getElementById("passwordConfirmacion").value;
 
   if (passwordr !== confirmacion) {
-    error.textContent = "Las contraseñas no coinciden";
+    errort.textContent = "Las contraseñas no coinciden";
     buttonCreate.disabled = false;
     return;
   }else {
@@ -293,7 +270,7 @@ botonLogin.addEventListener("click", async () => {
 
     console.error(error);
 
-    document.getElementById("error").textContent =
+    errort.textContent =
       "Correo o contraseña incorrectos";
 
   }
