@@ -278,12 +278,12 @@ botonLogin.addEventListener("click", async () => {
     const datos = await getDoc(referencia);
 
     if (datos.exists()) {
-      console.log(datos.data().name);
+      console.log(datos.data());
     }
 
     const user = userCredential.user;
 
-    console.log("Sesión iniciada:", user.uid);
+    console.log("Sesión iniciada:", user.uid, datos.data().name);
 
   } catch (error) {
 
