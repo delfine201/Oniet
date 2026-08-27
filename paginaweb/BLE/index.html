@@ -67,7 +67,6 @@
                 
                         console.log("Recibido:", mensaje);
 
-                        document.getElementById("received").textContent = "";
                         document.getElementById("received").textContent += mensaje;
 
                     }
@@ -93,6 +92,8 @@
                 alert("Primero conectá el Bluetooth");
                 return;
             }
+
+            document.getElementById("received").textContent = "";
 
             const message =
                 document.getElementById("message").value;
