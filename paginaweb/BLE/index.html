@@ -52,6 +52,25 @@
                 characteristic =
                     await service.getCharacteristic(CHARACTERISTIC_UUID);
 
+                await characteristic.startNotifications();
+
+                characteristic.addEventListener(
+                    "characteristicvaluechanged",
+                    event => {
+
+                        const value = event.target.value;
+
+                        const decoder = new TextDecoder();
+
+                        const mensaje = decoder.decode(value);
+
+                        console.log("Arduino:", mensaje);
+
+                        document.getElementById("status").textContent =
+                            "Arduino: " + mensaje;
+                    }
+                );
+
                 document.getElementById("status").textContent =
                     "🟢 Conectado a " + device.name;
 
