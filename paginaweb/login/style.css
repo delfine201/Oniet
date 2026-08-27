@@ -17,8 +17,8 @@
 
 :root.light {
   --background: #e1faf9;
-  --surface:#99ffe0;
-  --panel: #0ad3ff;
+  --surface:#0ad3ff;
+  --panel: #99ffe0;
   --special:#8d3244;
   --border:#053033;
   --border-special:#a97876;
