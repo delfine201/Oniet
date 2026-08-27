@@ -16,11 +16,11 @@
 }
 
 :root.light {
-  --background: #e4e1d5;
-  --surface:#c6ccb1;
-  --panel: #b9c5a6;
-  --special:#718c67;
-  --border:#9da98a;
+  --background: #e1faf9;
+  --surface:#99ffe0;
+  --panel: #0ad3ff;
+  --special:#8d3244;
+  --border:#053033;
   --border-special:#a97876;
   --text:#3b3c32;
   --text-special: #ead1d0;
