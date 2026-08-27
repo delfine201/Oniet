@@ -95,10 +95,28 @@ buttonBack.forEach((button) => {
     const formulario = button.closest(".create_acount, .login");
 
     const dates = formulario.querySelector(".dates");
+    const medics = formulario.querySelector(".medics");
     const password = formulario.querySelector(".password");
     
-    dates.classList.add("active");
-    password.classList.remove("active");
+    /*dates.classList.add("active");
+    password.classList.remove("active");*/
+
+    if (medics && medics.classList.contains("active")) {
+
+      dates.classList.add("active");
+      medics.classList.remove("active");
+
+    } else {
+
+      if (medics) {
+        medics.classList.add("active");
+      }else {
+        dates.classList.add("active");
+      }
+
+      password.classList.remove("active");
+
+    }
   });
 });
 
