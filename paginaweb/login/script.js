@@ -16,6 +16,7 @@ const txtmode = document.getElementById("mode");
 
 const buttonNext = document.querySelectorAll(".bnext");
 const buttonBack = document.querySelectorAll(".back");
+const buttonCreate = document.querySelector(".bcreate");
 
 const cmostrar = document.querySelectorAll(".checkbox");
 
@@ -25,6 +26,8 @@ const txtm = document.querySelector("#txtm");
 
 const create_acount = document.querySelector(".create_acount");
 const login = document.querySelector(".login");
+
+const error = document.getElementById("error");
 
 console.log("navigation:", navigation);
 console.log("themebutton:", themebutton);
@@ -175,4 +178,54 @@ cambiarmodo.addEventListener("click", () => {
   
   dates.classList.add("active");
   password.classList.remove("active");
+});
+
+buttonCreate.addEventListener("click", async () => {
+  buttonCreate.disabled = true;
+
+  const nombre = document.getElementById("nombre").value;
+  const apellido = document.getElementById("apellido").value;
+  const dni = document.getElementById("dni").value;
+  const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+  const email = document.getElementById("emailRegistro").value;
+  const alergias = document.getElementById("alergias").value;
+  const enfermedades = document.getElementById("enfermedades").value;
+
+  const passwordr = document.getElementById("passwordRegistro").value;
+  const confirmacion = document.getElementById("passwordConfirmacion").value;
+
+  if (passwordr !== confirmacion) {
+    error.textContent = "Las contraseñas no coinciden";
+    return;
+  }else {
+    error.textContent = "";
+  }
+
+  try {
+
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      passwordr
+    );
+
+    const user = userCredential.user;
+
+    await setDoc(doc(db, "usuarios", user.uid), {
+      nombre: nombre,
+      apellido: apellido,
+      dni: dni,
+      fechaNacimiento: fechaNacimiento,
+      email: email,
+      alergias: alergias,
+      enfermedades: enfermedades
+    });
+  } catch (e) {
+
+    console.error(e);
+    error.textContent = e.message;
+
+    botonCrear.disabled = false;
+  }
+
 });
