@@ -93,11 +93,6 @@ body {
     grid-template-row: repeat(3, 1fr);
 }
 
-.person.date {
-  width: 100%;
-  height: 100%;
-}
-
 h2 {
     position: absolute;
 
