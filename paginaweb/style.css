@@ -91,6 +91,7 @@ body {
 
     justify-content: center;
     align-intems: center;
+    flex-wrap: wrap;
 }
 
 h2 {
@@ -103,6 +104,10 @@ h2 {
 .title {
     text-align: center;
     width: 100%;
+}
+
+p {
+  width: 33.3%;
 }
 
 .buttons {
