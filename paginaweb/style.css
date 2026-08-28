@@ -89,7 +89,7 @@ body {
 
     display: grid;
 
-    grid-template-column: repeat(3, 1fr);
+    grid-template-column: repeat(2, 1fr);
     grid-template-row: repeat(3, 1fr);
 }
 
