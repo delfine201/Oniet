@@ -26,6 +26,14 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
   <h2> Hola [Nombre] 🌟</h2>
 
+  <main class="info">
+    <aside class="person">
+        <h3 class="title">Usuario</h3>
+        <p> Dni: [dni]</p>
+        <p>  </p>
+    </aside>
+  </main>
+
   <div class="zone">
 
     <!-- BOTÓN CENTRAL -->
@@ -36,7 +44,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- ARRIBA -->
 
-    <div class="item" style="--angulo: -90deg;">
+    <div class="item" style="--i: 0;">
 
       <ion-icon name="home"></ion-icon>
 
@@ -44,7 +52,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- DERECHA -->
 
-    <div class="item" style="--angulo: -18deg;">
+    <div class="item" style="--i: 1;">
 
       <ion-icon name="settings"></ion-icon>
 
@@ -52,7 +60,7 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- ABAJO -->
 
-    <div class="item" style="--angulo: 54deg;">
+    <div class="item" style="--i: 2;">
 
       <ion-icon name="person"></ion-icon>
 
@@ -60,16 +68,22 @@ src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
 
     <!-- IZQUIERDA -->
 
-    <div class="item" style="--angulo: 126deg;">
+    <div class="item" style="--i: 3;">
 
       <ion-icon name="bluetooth"></ion-icon>
 
     </div>
 
-    <div class="item" style="--angulo: 198deg;">
+    <div class="item" style="--i: 4;">
 
-      <ion-icon style="position: absolute; scale: 1.3; z-index: 10;" name="scan-outline"></ion-icon>
-      <ion-icon style="scale: .7; z-index: 5;"name="qr-code-outline"></ion-icon>
+      <ion-icon style="position: absolute; scale: 1.3; z-index: 10;" name="scan"></ion-icon>
+      <ion-icon style="scale: .7; z-index: 5;"name="qr-code"></ion-icon>
+
+    </div>
+
+    <div class="item" style="--i: 5;" >
+        
+      <ion-icon name="folder"></ion-icon>
 
     </div>
 
