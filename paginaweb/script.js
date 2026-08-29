@@ -35,6 +35,8 @@ const zone = document.querySelector(".zone");
 
 const navigation = document.querySelector(".navigation");
 
+const item = document.querySelector(".item");
+
 const menu = document.getElementById("menu");
 let icono = "menu";
 
@@ -42,22 +44,7 @@ const themebutton = document.getElementById("theme");
 const themeicon = document.getElementById("itheme");
 const txtmode = document.getElementById("mode");
 
-const buttonNext = document.querySelectorAll(".bnext");
-const buttonBack = document.querySelectorAll(".back");
-const buttonCreate = document.querySelector(".bcreate");
-
 const cmostrar = document.querySelectorAll(".checkbox");
-
-const cambiarmodo = document.querySelector("#bcm");
-const circulo = document.querySelector("#circulo");
-const txtm = document.querySelector("#txtm");
-
-const errort = document.getElementById("error");
-
-/*console.log("navigation:", navigation);*/
-console.log("themebutton:", themebutton);
-console.log("buttonNext:", buttonNext);
-console.log("cmostrar:", cmostrar);
 
 navigation.addEventListener("click", () => {
 
