@@ -48,24 +48,16 @@ const tema = localStorage.getItem("theme");
 
 console.log(tema);
 
-if(tema === "light"){
+if(tema === "dark"){
   document.documentElement.classList.remove("light");
   document.documentElement.classList.add("dark");
   themeicon.setAttribute("name", "moon");
   themebutton.classList.remove("active");
-  localStorage.setItem(
-    "theme",
-    "dark"
-  );
 }else{
   document.documentElement.classList.remove("dark")
   document.documentElement.classList.add("light");
   themeicon.setAttribute("name", "sunny");
   themebutton.classList.add("active");
-  localStorage.setItem(
-    "theme",
-    "light"
-  );
 }
 
 themebutton.addEventListener ("click", () => {
