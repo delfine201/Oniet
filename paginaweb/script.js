@@ -46,6 +46,30 @@ const txtmode = document.getElementById("mode");
 
 const cmostrar = document.querySelectorAll(".checkbox");
 
+const tema = localStorage.getItem("theme");
+
+console.log(tema);
+
+if(tema === "light"){
+  document.documentElement.classList.remove("light");
+  document.documentElement.classList.add("dark");
+  themeicon.setAttribute("name", "moon");
+  themebutton.classList.remove("active");
+  localStorage.setItem(
+    "theme",
+    "dark"
+  );
+}else{
+  document.documentElement.classList.remove("dark")
+  document.documentElement.classList.add("light");
+  themeicon.setAttribute("name", "sunny");
+  themebutton.classList.add("active");
+  localStorage.setItem(
+    "theme",
+    "light"
+  );
+}
+
 navigation.addEventListener("click", () => {
 
   zone.classList.toggle("active");
@@ -66,11 +90,19 @@ themebutton.addEventListener ("click", () => {
     document.documentElement.classList.add("dark");
     themeicon.setAttribute("name", "moon");
     themebutton.classList.remove("active");
+    localStorage.setItem(
+      "theme",
+      "dark"
+    );
   }else{
     document.documentElement.classList.remove("dark")
     document.documentElement.classList.add("light");
     themeicon.setAttribute("name", "sunny");
     themebutton.classList.add("active");
+    localStorage.setItem(
+      "theme",
+      "light"
+    );
   }
 });
 
