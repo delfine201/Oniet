@@ -230,6 +230,7 @@ buttonCreate.addEventListener("click", async () => {
     });
 
     localStorage.setItem("sesion", user.id);
+    window.location.href = "index.html";
   } catch (e) {
 
     console.error(e);
@@ -269,6 +270,7 @@ botonLogin.addEventListener("click", async () => {
     }
 
     localStorage.setItem("sesion", user.id);
+    window.location.href = "index.html";
 
   } catch (error) {
 
