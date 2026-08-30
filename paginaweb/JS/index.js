@@ -104,6 +104,6 @@ ble.addEventListener("click", async (event) => {
 
     event.preventDefault();
 
-    await import("./JS/ble.js");
+    await import("./ble.js");
 
 });
