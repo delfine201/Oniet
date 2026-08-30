@@ -60,6 +60,21 @@ body {
   font-weight: bold;
 }
 
+.absolutes {
+  position: absolute;
+
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+}
+
 .bartop {
   position: absolute;
   top: 0;
@@ -103,23 +118,23 @@ body {
   transform: rotate(180deg);
 }
 
-main {
-    width: 100%;
-    height: calc(100% - 6vh);
+.main {
+  width: 100%;
+  height: calc(100% - 6vh);
 
-    background: var(--surface);
+  background: var(--surface);
 
-    border: 1px dashed var(--border);
-    border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    padding: 20px;
+  padding: 20px;
 
-    gap: 20px;
+  gap: 20px;
 }
 
 input {
@@ -142,46 +157,194 @@ input {
   color: var(--text);
 }
 
-article {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: clamp(300px, 30%, 1000px);
-    padding: 10px;
+  width: clamp(300px, 30%, 1000px);
+  padding: 10px;
 
-    background-color: var(--special);
+  background-color: var(--special);
 
-    border: 1px dashed var(--border);
-    border-radius: 999px;
+  border: 1px dashed var(--border);
+  border-radius: 999px;
 
-    gap: 10px;
+  gap: 10px;
 }
 
 button {
-    margin: 0;
+  margin: 0;
 
-    background: var(--special);
+  background: var(--special);
 
-    width: 200px;
-    height:25px;
+  width: 200px;
+  height:25px;
 
-    border-radius: 99px;
-    
-    padding-top: 2px;
-    padding-left: 4px;
+  border-radius: 99px;
+  
+  padding-top: 2px;
+  padding-left: 4px;
 
-    transition: 0.5s;
-    transform: translateY(0);
-    border: 1px dashed var(--border);
+  transition: 0.5s;
+  transform: translateY(0);
+  border: 1px dashed var(--border);
 }
 
 #lectorQR {
-    width: 300px;
-    max-width: 90vw;
-    margin: 20px auto;
+  width: 300px;
+  max-width: 90vw;
+  margin: 20px auto;
 }
 
 #lectorQR video {
-    width: 100% !important;
+  width: 100% !important;
+}
+
+.zone {
+
+  position: relative;
+
+  bottom: 5px;
+  right: 5px;
+
+  width: 170px;
+  height: 170px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+
+  grid-row: 8/10;
+  grid-column: 5/8;
+
+  --cantidad: 6;
+  --radio: 65px;
+}
+
+
+/* =========================
+   BOTÓN CENTRAL
+========================= */
+
+.navigation {
+
+  position: absolute;
+  z-index: 10;
+
+  width: 50px;
+  height: 50px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: var(--button);
+
+  transition: 0.5s;
+
+  border: 1px dashed var(--border);
+
+  transform: translate(100%, 100%);
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.item {
+
+  position: fixed;
+  z-index: 5;
+
+  width: 40px;
+  height: 40px;
+
+  background: var(--panel);
+
+  border-radius: 50%;
+  border: 1px dashed var(--border);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  /*
+    Todos empiezan en el centro
+  */
+
+  transform: translate(120%, 120%);
+
+  transition:
+    transform 0.5s,
+    background 0.3s;
+}
+
+
+/* =========================
+   MENÚ ABIERTO
+========================= */
+
+.zone.active .item {
+    --angulo: calc(
+        (360deg / var(--cantidad)) * var(--i) - 90deg
+    );
+
+    transform:
+        translate(
+            calc(cos(var(--angulo)) * var(--radio)),
+            calc(sin(var(--angulo)) * var(--radio))
+        );
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+ion-icon {
+  font-size: 22px;
+  color: var(--text);
+}
+
+
+/* =========================
+   BOTÓN CENTRAL
+========================= */
+
+.zone.active .navigation {
+
+  transform: rotate(180deg);
+
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.navigation:hover {
+    background: var(--special);
+}
+
+.item:hover {
+
+  background: var(--border-special);
+
+  transform:
+    translate(
+      calc(var(--x) * 65px),
+      calc(var(--y) * 65px)
+    )
+    scale(1.15);
+
 }
