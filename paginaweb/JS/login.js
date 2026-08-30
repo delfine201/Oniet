@@ -228,6 +228,8 @@ buttonCreate.addEventListener("click", async () => {
       alergias: alergias,
       enfermedades: enfermedades
     });
+
+    localStorage.setItem("sesion", user.id);
   } catch (e) {
 
     console.error(e);
@@ -265,6 +267,8 @@ botonLogin.addEventListener("click", async () => {
       console.log("DNI: ", usuario.dni);
       console.log("Gmail: ", usuario.email);
     }
+
+    localStorage.setItem("sesion", user.id);
 
   } catch (error) {
 

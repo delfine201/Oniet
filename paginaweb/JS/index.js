@@ -1,3 +1,15 @@
+/*
+------------------------------------------------
+----Verificamos que tenga iniciada la sesion----
+------------------------------------------------
+*/
+
+const sesion = localStorage.getItem("sesion");
+
+if(sesion === null) {
+  alert("Primero Inicie Sesion")
+  window.location.href = "login.html";
+}
 
 // Importamos el firbase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
