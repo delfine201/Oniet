@@ -33,8 +33,8 @@ console.log("Html5Qrcode:", typeof Html5Qrcode);*/
 const lector = new Html5Qrcode("lectorQR");
 /*const botonQR = document.getElementById("escanearQR");
 
-const themebutton = document.getElementById("theme");
-const themeicon = document.getElementById("itheme");
+*/const themebutton = document.getElementById("theme");
+const themeicon = document.getElementById("itheme");/*
 
 const inputId = document.getElementById("id");
 const inputNombre = document.getElementById("nombre");
@@ -80,7 +80,7 @@ navigation.addEventListener("click", () => {
   menu.setAttribute("name", icono);
 
 });
-
+*/
 themebutton.addEventListener ("click", () => {
   if(document.documentElement.classList.contains("light")){
     document.documentElement.classList.remove("light");
@@ -94,7 +94,7 @@ themebutton.addEventListener ("click", () => {
     themebutton.classList.add("active");
   }
 });
-
+/*
 botonQR.addEventListener("click", async () => {
     console.log("1. Botón presionado");
 */
