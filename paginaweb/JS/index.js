@@ -46,6 +46,8 @@ const cmostrar = document.querySelectorAll(".checkbox");
 
 const tema = localStorage.getItem("theme");
 
+const ble = document.getElementById("ble");
+
 console.log(tema);
 
 if(tema === "dark" || tema === null){
@@ -97,3 +99,11 @@ themebutton.addEventListener ("click", () => {
 });
 
 txtmode.textContent = "Pagina Principal";
+
+ble.addEventListener("click", async (event) => {
+
+    event.preventDefault();
+
+    await import("./JS/ble.js");
+
+});
