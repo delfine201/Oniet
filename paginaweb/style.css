@@ -281,7 +281,7 @@ textarea:focus, input:focus {
 
   z-index: 100;
 
-  grid-row: 7/10;
+  grid-row: 8/10;
   grid-column: 5/8;
 
   --cantidad: 6;
