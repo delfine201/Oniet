@@ -197,6 +197,8 @@ buttonCreate.addEventListener("click", async () => {
   const email = document.getElementById("emailRegistro").value;
   const alergias = document.getElementById("alergias").value;
   const enfermedades = document.getElementById("enfermedades").value;
+  const peso = document.getElementById("peso").value;
+  const altura = document.getElementById("altura").value;
 
   const passwordr = document.getElementById("passwordRegistro").value;
   const confirmacion = document.getElementById("passwordConfirmacion").value;
@@ -226,7 +228,9 @@ buttonCreate.addEventListener("click", async () => {
       fechaNacimiento: fechaNacimiento,
       email: email,
       alergias: alergias,
-      enfermedades: enfermedades
+      enfermedades: enfermedades,
+      peso: peso,
+      altura: altura
     });
 
     localStorage.setItem("sesion", user.id);

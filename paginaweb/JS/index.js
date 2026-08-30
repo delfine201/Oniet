@@ -1,16 +1,3 @@
-/*
-------------------------------------------------
-----Verificamos que tenga iniciada la sesion----
-------------------------------------------------
-*/
-
-const sesion = localStorage.getItem("sesion");
-
-if(sesion === null) {
-  alert("Primero Inicie Sesion")
-  window.location.href = "login.html";
-}
-
 // Importamos el firbase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
@@ -42,6 +29,42 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+//Verificamos que tenga iniciada la sesion
+
+const sesion = localStorage.getItem("sesion");
+
+let uid;
+let nombre;
+let apellido;
+let dni;
+let fechaNacimiento;
+let email;
+let alergias;
+let enfermedades; 
+let peso;
+let altura;
+
+if(sesion === null) {
+  alert("Primero Inicie Sesion")
+  window.location.href = "login.html";
+}else{
+  uid = localStorage.getItem("sesion");
+
+  const referencia = doc(db, "usuarios", uid);
+  
+  const datos = await getDoc(referencia);
+
+  nombre = datos.nombre;
+  apellido = datos.apellido;
+  dni = datos.dni;
+  fechaNacimiento = datos.fechaNacimiento;
+  email = datos.email;
+  alergias = datos.alergias;
+  enfermedades = datos.enfermedades;
+  peso = datos.peso;
+  altura = datos.altura;
+}
+
 // Creamos los objetos segund sus id o sus clases
 const zone = document.querySelector(".zone");
 
@@ -59,6 +82,10 @@ const cmostrar = document.querySelectorAll(".checkbox");
 const tema = localStorage.getItem("theme");
 
 const ble = document.getElementById("ble");
+
+const txtnombre = document.querySelector("#nombretxt");
+
+txtnombre.textContent = nombre;
 
 console.log(tema);
 
