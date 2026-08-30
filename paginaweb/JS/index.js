@@ -35,8 +35,6 @@ const zone = document.querySelector(".zone");
 
 const navigation = document.querySelector(".navigation");
 
-const item = document.querySelector(".item");
-
 const menu = document.getElementById("menu");
 let icono = "menu";
 

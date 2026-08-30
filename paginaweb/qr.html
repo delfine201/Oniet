@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Pulso y Mente </title>
+<!-- IONICONS -->
+<script type="module"
+src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+</script>
+<script nomodule
+src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+</script>
+
+<link rel="stylesheet" href="CSS/qr.css">
+
+</head>
+
+<body>
+
+    <header class = "bartop">
+        <h3>Pagina principal</h3>
+        <button class="theme" id="theme">
+            <ion-icon id="itheme" name="moon"></ion-icon>
+        </button>
+    </header>
+
+    <main>
+        <button id="escanearQR">Escanear QR</button>
+        <div id="lectorQR"></div>
+        <article>
+            <span>Id: </span>
+            <input id="id" type="text">
+        </article>
+        <article>
+            <span>Nombre: </span>
+            <input id="nombre" type="text" placeholder="bluetooth01">
+        </article>
+        <article>
+            <span>Estado: </span>
+            <input id="estado" type="text">
+        </article>
+        <button> Conectar BLE </button>
+    </main>
+
+    <main class="absolutes">
+        <div class="zone">
+
+        <!-- BOTÓN CENTRAL -->
+
+        <div class="navigation">
+            <ion-icon id="menu" name="menu"></ion-icon>
+        </div>
+
+        <!-- ARRIBA -->
+
+        <div class="item" style="--i: 0;">
+
+            <ion-icon name="home"></ion-icon>
+
+        </div>
+
+        <!-- DERECHA -->
+
+        <div class="item" style="--i: 1;">
+
+            <ion-icon name="settings"></ion-icon>
+
+        </div>
+
+        <!-- ABAJO -->
+
+        <div class="item" style="--i: 2;">
+
+            <ion-icon name="person"></ion-icon>
+
+        </div>
+
+        <!-- IZQUIERDA -->
+
+        <div class="item" style="--i: 3;">
+
+            <ion-icon name="bluetooth"></ion-icon>
+
+        </div>
+
+        <a href="QR/index.html" class="item" style="--i: 4;">
+
+            <ion-icon style="position: absolute; scale: 1.3; z-index: 10;" name="scan"></ion-icon>
+            <ion-icon style="scale: .7; z-index: 5;"name="qr-code"></ion-icon>
+
+        </a>
+
+        <div class="item" style="--i: 5;" >
+            
+            <ion-icon name="folder"></ion-icon>
+
+        </div>
+
+        </div>
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script type="module" src="JS/qr.js"></script>
+
+</body>
+
+</html>

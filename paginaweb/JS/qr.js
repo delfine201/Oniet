@@ -40,6 +40,13 @@ const inputId = document.getElementById("id");
 const inputNombre = document.getElementById("nombre");
 const inputEstado = document.getElementById("estado");
 
+const zone = document.querySelector(".zone");
+
+const navigation = document.querySelector(".navigation");
+
+const menu = document.getElementById("menu");
+let icono = "menu";
+
 inputId.value = "MAQUETA01";
 inputNombre.value = datos.nombre;
 inputEstado.value = datos.activo ? "Activo" : "Inactivo";
@@ -59,6 +66,20 @@ if(tema === "dark" || tema === null){
   themeicon.setAttribute("name", "sunny");
   themebutton.classList.add("active");
 }
+
+navigation.addEventListener("click", () => {
+
+  zone.classList.toggle("active");
+  
+  if(zone.classList.contains("active")){
+    icono = "close";
+  }else{
+    icono = "menu";
+  }
+  
+  menu.setAttribute("name", icono);
+
+});
 
 themebutton.addEventListener ("click", () => {
   if(document.documentElement.classList.contains("light")){
