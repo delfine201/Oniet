@@ -102,8 +102,14 @@ txtmode.textContent = "Pagina Principal";
 
 ble.addEventListener("click", async (event) => {
 
-    event.preventDefault();
+  event.preventDefault();
 
-    await import("./ble.js");
+  await import("./ble.js");
 
 });
+
+const txtqr = localStorage.getItem("QR");
+
+if(txtqr !== null) {
+  console.log(txtqr);
+}
