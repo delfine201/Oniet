@@ -5,29 +5,35 @@
 }
 
 :root{
-    --radius: 15px;
+  --radius: 15px;
 }
 
 :root.dark {
-  --background: #20251d;
-  --surface:#2b3226;
-  --panel:#384321;
-  --special:#78905f;
-  --border:#58654a;
-  --border-special: #a87573;
-  --text: #e3e0cf;
-  --text-special: #dfbcbc;
+
+  --background: #071014;       /* Fondo general */
+  --surface:    #0D1B20;       /* Tarjetas / contenedores */
+  --panel:      #122830;       /* Paneles / inputs */
+  --special:    #16C7C1;       /* Turquesa principal */
+  --button:     #ca2b31;
+  --border:     #237B88;       /* Bordes */
+  --border-special: #E5484D;   /* Rojo: alertas / acciones críticas */
+  --text:       #F2F7F7;       /* Texto principal */
+  --text-special: #8BE9E5;     /* Texto secundario / acentos */
+
 }
 
 :root.light {
-  --background: #e4e1d5;
-  --surface:#c6ccb1;
-  --panel: #b9c5a6;
-  --special:#718c67;
-  --border:#9da98a;
-  --border-special:#a97876;
-  --text:#3b3c32;
-  --text-special: #ead1d0;
+
+  --background: #F4FAFA;       /* Fondo general */
+  --surface:    #FFFFFF;       /* Tarjetas / contenedores */
+  --panel:      #E6F3F5;       /* Paneles / inputs */
+  --special:    #0FA7B5;       /* Turquesa principal */
+  --button:     #bb4b51;
+  --border:     #79C8D0;       /* Bordes */
+  --border-special: #D9363E;   /* Rojo */
+  --text:       #10252B;       /* Texto principal */
+  --text-special: #176B78;     /* Texto secundario */
+
 }
 
 body {
@@ -52,6 +58,21 @@ body {
 
   color: var(--text);
   font-weight: bold;
+}
+
+.absolutes {
+  position: absolute;
+
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+  left: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
 }
 
 .bartop {
@@ -97,23 +118,23 @@ body {
   transform: rotate(180deg);
 }
 
-main {
-    width: 100%;
-    height: calc(100% - 6vh);
+.main {
+  width: 100%;
+  height: calc(100% - 6vh);
 
-    background: var(--surface);
+  background: var(--surface);
 
-    border: 1px dashed var(--border);
-    border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    padding: 20px;
+  padding: 20px;
 
-    gap: 20px;
+  gap: 20px;
 }
 
 input {
@@ -136,46 +157,194 @@ input {
   color: var(--text);
 }
 
-article {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: clamp(300px, 30%, 1000px);
-    padding: 10px;
+  width: clamp(300px, 30%, 1000px);
+  padding: 10px;
 
-    background-color: var(--special);
+  background-color: var(--special);
 
-    border: 1px dashed var(--border);
-    border-radius: 999px;
+  border: 1px dashed var(--border);
+  border-radius: 999px;
 
-    gap: 10px;
+  gap: 10px;
 }
 
 button {
-    margin: 0;
+  margin: 0;
 
-    background: var(--special);
+  background: var(--special);
 
-    width: 200px;
-    height:25px;
+  width: 200px;
+  height:25px;
 
-    border-radius: 99px;
-    
-    padding-top: 2px;
-    padding-left: 4px;
+  border-radius: 99px;
+  
+  padding-top: 2px;
+  padding-left: 4px;
 
-    transition: 0.5s;
-    transform: translateY(0);
-    border: 1px dashed var(--border);
+  transition: 0.5s;
+  transform: translateY(0);
+  border: 1px dashed var(--border);
 }
 
 #lectorQR {
-    width: 300px;
-    max-width: 90vw;
-    margin: 20px auto;
+  width: 300px;
+  max-width: 90vw;
+  margin: 20px auto;
 }
 
 #lectorQR video {
-    width: 100% !important;
+  width: 100% !important;
+}
+
+.zone {
+
+  position: relative;
+
+  bottom: 5px;
+  right: 5px;
+
+  width: 170px;
+  height: 170px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+
+  grid-row: 8/10;
+  grid-column: 5/8;
+
+  --cantidad: 6;
+  --radio: 65px;
+}
+
+
+/* =========================
+   BOTÓN CENTRAL
+========================= */
+
+.navigation {
+
+  position: absolute;
+  z-index: 10;
+
+  width: 50px;
+  height: 50px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: var(--button);
+
+  transition: 0.5s;
+
+  border: 1px dashed var(--border);
+
+  transform: translate(100%, 100%);
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.item {
+
+  position: fixed;
+  z-index: 5;
+
+  width: 40px;
+  height: 40px;
+
+  background: var(--panel);
+
+  border-radius: 50%;
+  border: 1px dashed var(--border);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  /*
+    Todos empiezan en el centro
+  */
+
+  transform: translate(120%, 120%);
+
+  transition:
+    transform 0.5s,
+    background 0.3s;
+}
+
+
+/* =========================
+   MENÚ ABIERTO
+========================= */
+
+.zone.active .item {
+    --angulo: calc(
+        (360deg / var(--cantidad)) * var(--i) - 90deg
+    );
+
+    transform:
+        translate(
+            calc(cos(var(--angulo)) * var(--radio)),
+            calc(sin(var(--angulo)) * var(--radio))
+        );
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+ion-icon {
+  font-size: 22px;
+  color: var(--text);
+}
+
+
+/* =========================
+   BOTÓN CENTRAL
+========================= */
+
+.zone.active .navigation {
+
+  transform: rotate(180deg);
+
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.navigation:hover {
+    background: var(--special);
+}
+
+.item:hover {
+
+  background: var(--border-special);
+
+  transform:
+    translate(
+      calc(var(--x) * 65px),
+      calc(var(--y) * 65px)
+    )
+    scale(1.15);
+
 }
