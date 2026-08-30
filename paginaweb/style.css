@@ -60,6 +60,13 @@ body {
   font-weight: bold;
 }
 
+.absolutes {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+}
+
 .info {
   background: var(--surface);
 
@@ -252,7 +259,7 @@ textarea:focus, input:focus {
 
 .zone {
 
-  position: absolute;
+  position: relative;
 
   bottom: 5px;
   right: 5px;
@@ -265,6 +272,9 @@ textarea:focus, input:focus {
   align-items: center;
 
   z-index: 100;
+
+  grid-row: 7/10;
+  grid-column: 5/8;
 
   --cantidad: 6;
   --radio: 65px;
