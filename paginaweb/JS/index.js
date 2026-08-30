@@ -63,6 +63,8 @@ if(sesion === null) {
   enfermedades = datos.enfermedades;
   peso = datos.peso;
   altura = datos.altura;
+
+  console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
 }
 
 // Creamos los objetos segund sus id o sus clases
