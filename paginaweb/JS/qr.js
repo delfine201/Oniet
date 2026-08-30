@@ -50,7 +50,7 @@ let icono = "menu";
 inputId.value = "MAQUETA01";
 inputNombre.value = datos.nombre;
 inputEstado.value = datos.activo ? "Activo" : "Inactivo";
-
+*/
 const tema = localStorage.getItem("theme");
 
 console.log(tema);
@@ -65,7 +65,7 @@ if(tema === "dark" || tema === null){
   document.documentElement.classList.add("light");
   themeicon.setAttribute("name", "sunny");
   themebutton.classList.add("active");
-}
+}/*
 
 navigation.addEventListener("click", () => {
 
