@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+/*import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 import {
@@ -28,10 +28,10 @@ console.log(maquetaSnap.data());
 
 const datos = maquetaSnap.data();
 
-console.log("Html5Qrcode:", typeof Html5Qrcode);
+console.log("Html5Qrcode:", typeof Html5Qrcode);*/
 
 const lector = new Html5Qrcode("lectorQR");
-const botonQR = document.getElementById("escanearQR");
+/*const botonQR = document.getElementById("escanearQR");
 
 const themebutton = document.getElementById("theme");
 const themeicon = document.getElementById("itheme");
@@ -97,30 +97,32 @@ themebutton.addEventListener ("click", () => {
 
 botonQR.addEventListener("click", async () => {
     console.log("1. Botón presionado");
+*/
+try {
+  console.log("1. Intentando abrir cámara...");
 
-    try {
-        console.log("2. Intentando abrir cámara...");
+  await lector.start(
+    { facingMode: "environment" },
+    {
+      fps: 10,
+      qrbox: { width: 250, height: 250 }
+    },
+    (textoQR) => {
+      console.log("2. QR detectado:", textoQR);
 
-        await lector.start(
-            { facingMode: "environment" },
-            {
-                fps: 10,
-                qrbox: { width: 250, height: 250 }
-            },
-            (textoQR) => {
-                console.log("3. QR detectado:", textoQR);
+      localStorage.setItem("QR", textoQR);
 
-                inputId.value = textoQR;
-            },
-            (error) => {
-                // Los errores de "no encontré un QR en este frame"
-                // son normales y los ignoramos.
-            }
-        );
-
-        console.log("4. Cámara iniciada");
-        document.getElementById("lectorQR").style.border = "3px solid red";
-    } catch (error) {
-        console.error("❌ Error al abrir la cámara:", error);
+      window.location.href = "index.html";
+    },
+    (error) => {
+      // Los errores de "no encontré un QR en este frame"
+      // son normales y los ignoramos.
     }
-});
+  );
+
+  console.log("4. Cámara iniciada");
+  /*document.getElementById("lectorQR").style.border = "3px solid red";*/
+} catch (error) {
+  console.error("❌ Error al abrir la cámara:", error);
+};
+//});
