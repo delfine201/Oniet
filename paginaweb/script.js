@@ -50,7 +50,7 @@ const tema = localStorage.getItem("theme");
 
 console.log(tema);
 
-if(tema === "dark"){
+if(tema === "dark" || tema === null){
   document.documentElement.classList.remove("light");
   document.documentElement.classList.add("dark");
   themeicon.setAttribute("name", "moon");
