@@ -44,7 +44,7 @@ let enfermedades;
 let peso;
 let altura;
 
-if(sesion === null || sesion === undefined) {
+if(sesion === null) {
   alert("Primero Inicie Sesion")
   window.location.href = "login.html";
 }
@@ -70,8 +70,28 @@ if (datos.exists()) {
 console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
 
 const txtnombre = document.querySelector("#nombretxt");
+const txtdni = document.querySelector("#dnitxt");
+const txtaltura = document.querySelector("#alturatxt");
+const txtpeso = document.querySelector("#pesotxt");
+const txtedad = document.querySelector("#edadtxt");
 
 txtnombre.textContent = nombre;
+txtdni.textContent = dni;
+txtaltura.textContent = altura;
+txtpeso.textContent = peso;
+
+const nacimiento = new Date(fechaNacimiento);
+const hoy = new Date();
+
+let edad = hoy.getFullYear() - nacimiento.getFullYear();
+
+const mes = hoy.getMonth() - nacimiento.getMonth();
+
+if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+}
+
+txtedad.textContent = edad;
 
 // Creamos los objetos segund sus id o sus clases
 const zone = document.querySelector(".zone");
