@@ -31,7 +31,7 @@ const db = getFirestore(app);
 
 //Verificamos que tenga iniciada la sesion
 
-const sesion = localStorage.getItem("sesion");
+const sesion = sessionStorage.getItem("sesion");
 
 let uid;
 let nombre;
@@ -49,7 +49,7 @@ if(sesion === null) {
   window.location.href = "login.html";
 }
 
-uid = localStorage.getItem("sesion");
+uid = sessionStorage.getItem("sesion");
 
 const referencia = doc(db, "usuarios", uid);
 
@@ -107,7 +107,7 @@ const txtmode = document.getElementById("mode");
 
 const cmostrar = document.querySelectorAll(".checkbox");
 
-const tema = localStorage.getItem("theme");
+const tema = sessionStorage.getItem("theme");
 
 const ble = document.getElementById("ble");
 
@@ -145,7 +145,7 @@ themebutton.addEventListener ("click", () => {
     document.documentElement.classList.add("dark");
     themeicon.setAttribute("name", "moon");
     themebutton.classList.remove("active");
-    localStorage.setItem(
+    sessionStorage.setItem(
       "theme",
       "dark"
     );
@@ -154,7 +154,7 @@ themebutton.addEventListener ("click", () => {
     document.documentElement.classList.add("light");
     themeicon.setAttribute("name", "sunny");
     themebutton.classList.add("active");
-    localStorage.setItem(
+    sessionStorage.setItem(
       "theme",
       "light"
     );
@@ -171,7 +171,7 @@ ble.addEventListener("click", async (event) => {
 
 });
 
-const txtqr = localStorage.getItem("QR");
+const txtqr = sessionStorage.getItem("QR");
 
 if(txtqr !== null) {
   console.log(txtqr);
