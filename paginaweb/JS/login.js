@@ -55,17 +55,41 @@ console.log("themebutton:", themebutton);
 console.log("buttonNext:", buttonNext);
 console.log("cmostrar:", cmostrar);
 
+const tema = sessionStorage.getItem("theme");
+
+console.log(tema);
+
+if(tema === "dark" || tema === null){
+  document.documentElement.classList.remove("light");
+  document.documentElement.classList.add("dark");
+  themeicon.setAttribute("name", "moon");
+  themebutton.classList.remove("active");
+}else{
+  document.documentElement.classList.remove("dark")
+  document.documentElement.classList.add("light");
+  themeicon.setAttribute("name", "sunny");
+  themebutton.classList.add("active");
+}
+
 themebutton.addEventListener ("click", () => {
   if(document.documentElement.classList.contains("light")){
     document.documentElement.classList.remove("light");
     document.documentElement.classList.add("dark");
     themeicon.setAttribute("name", "moon");
     themebutton.classList.remove("active");
+    sessionStorage.setItem(
+      "theme",
+      "dark"
+    );
   }else{
     document.documentElement.classList.remove("dark")
     document.documentElement.classList.add("light");
     themeicon.setAttribute("name", "sunny");
     themebutton.classList.add("active");
+    sessionStorage.setItem(
+      "theme",
+      "light"
+    );
   }
 });
 
