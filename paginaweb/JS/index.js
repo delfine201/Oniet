@@ -47,27 +47,27 @@ let altura;
 if(sesion === null || sesion === undefined) {
   alert("Primero Inicie Sesion")
   window.location.href = "login.html";
-}else{
-  uid = localStorage.getItem("sesion");
-
-  const referencia = doc(db, "usuarios", uid);
-  
-  const datos = await getDoc(referencia);
-
-  if (datos.exists()) {
-    const usuario = datos.data();
-    nombre = usuario.nombre;
-    apellido = usuario.apellido;
-    dni = usuario.dni;
-    fechaNacimiento = usuario.fechaNacimiento;
-    email = usuario.email;
-    alergias = usuario.alergias;
-    enfermedades = usuario.enfermedades;
-    peso = usuario.peso;
-    altura = usuario.altura;
-  }
-  console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
 }
+
+uid = localStorage.getItem("sesion");
+
+const referencia = doc(db, "usuarios", uid);
+
+const datos = await getDoc(referencia);
+
+if (datos.exists()) {
+  const usuario = datos.data();
+  nombre = usuario.nombre;
+  apellido = usuario.apellido;
+  dni = usuario.dni;
+  fechaNacimiento = usuario.fechaNacimiento;
+  email = usuario.email;
+  alergias = usuario.alergias;
+  enfermedades = usuario.enfermedades;
+  peso = usuario.peso;
+  altura = usuario.altura;
+}
+console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
 
 const txtnombre = document.querySelector("#nombretxt");
 
