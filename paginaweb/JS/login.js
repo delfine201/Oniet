@@ -233,7 +233,7 @@ buttonCreate.addEventListener("click", async () => {
       altura: altura
     });
 
-    localStorage.setItem("sesion", user.uid);
+    sessionStorage.setItem("sesion", user.uid);
     window.location.href = "index.html";
   } catch (e) {
 
@@ -273,7 +273,7 @@ botonLogin.addEventListener("click", async () => {
       console.log("Gmail: ", usuario.email);
     }
 
-    localStorage.setItem("sesion", user.uid);
+    sessionStorage.setItem("sesion", user.uid);
     window.location.href = "index.html";
 
   } catch (error) {
