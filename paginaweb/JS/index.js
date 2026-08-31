@@ -54,17 +54,20 @@ if(sesion === null) {
   
   const datos = await getDoc(referencia);
 
-  nombre = datos.nombre;
-  apellido = datos.apellido;
-  dni = datos.dni;
-  fechaNacimiento = datos.fechaNacimiento;
-  email = datos.email;
-  alergias = datos.alergias;
-  enfermedades = datos.enfermedades;
-  peso = datos.peso;
-  altura = datos.altura;
+  if (datos.exists()) {
+    const usuario = datos.data();
+    nombre = usuario.nombre;
+    apellido = usuario.apellido;
+    dni = usuario.dni;
+    fechaNacimiento = usuario.fechaNacimiento;
+    email = usuario.email;
+    alergias = usuario.alergias;
+    enfermedades = usuario.enfermedades;
+    peso = usuario.peso;
+    altura = usuario.altura;
 
-  console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
+    console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
+  }
 }
 
 // Creamos los objetos segund sus id o sus clases
