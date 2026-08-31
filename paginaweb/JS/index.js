@@ -44,7 +44,7 @@ let enfermedades;
 let peso;
 let altura;
 
-if(sesion === null) {
+if(sesion === null || sesion === undefined) {
   alert("Primero Inicie Sesion")
   window.location.href = "login.html";
 }else{
