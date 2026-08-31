@@ -69,6 +69,10 @@ if(sesion === null || sesion === undefined) {
   console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
 }
 
+const txtnombre = document.querySelector("#nombretxt");
+
+txtnombre.textContent = nombre;
+
 // Creamos los objetos segund sus id o sus clases
 const zone = document.querySelector(".zone");
 
@@ -86,10 +90,6 @@ const cmostrar = document.querySelectorAll(".checkbox");
 const tema = localStorage.getItem("theme");
 
 const ble = document.getElementById("ble");
-
-const txtnombre = document.querySelector("#nombretxt");
-
-txtnombre.textContent = nombre;
 
 console.log(tema);
 
