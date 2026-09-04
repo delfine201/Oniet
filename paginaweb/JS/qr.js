@@ -51,7 +51,7 @@ inputId.value = "MAQUETA01";
 inputNombre.value = datos.nombre;
 inputEstado.value = datos.activo ? "Activo" : "Inactivo";
 */
-const tema = localStorage.getItem("theme");
+const tema = sessionStorage.getItem("theme");
 
 console.log(tema);
 
@@ -87,11 +87,19 @@ themebutton.addEventListener ("click", () => {
     document.documentElement.classList.add("dark");
     themeicon.setAttribute("name", "moon");
     themebutton.classList.remove("active");
+    sessionStorage.setItem(
+      "theme",
+      "dark"
+    );
   }else{
     document.documentElement.classList.remove("dark")
     document.documentElement.classList.add("light");
     themeicon.setAttribute("name", "sunny");
     themebutton.classList.add("active");
+    sessionStorage.setItem(
+      "theme",
+      "light"
+    );
   }
 });
 /*
@@ -110,7 +118,7 @@ try {
     (textoQR) => {
       console.log("2. QR detectado:", textoQR);
 
-      localStorage.setItem("QR", textoQR);
+      sessionStorage.setItem("QR", textoQR);
 
       window.location.href = "index.html";
     },
