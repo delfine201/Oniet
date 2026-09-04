@@ -69,6 +69,12 @@ if (datos.exists()) {
 }
 console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
 
+const params = new URLSearchParams(window.location.search);
+
+const maqueta = params.get("maq");
+
+console.log("maqueta:", maqueta);
+
 const txtnombre = document.querySelector("#nombretxt");
 const txtdni = document.querySelector("#dnitxt");
 const txtaltura = document.querySelector("#alturatxt");
