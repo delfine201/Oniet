@@ -76,7 +76,7 @@ const maqueta = params.get("maq");
 console.log("maqueta:", maqueta);
 
 const txtnombre = document.querySelector("#nombretxt");
-txtnombre += maqueta;
+nombre += maqueta;
 const txtdni = document.querySelector("#dnitxt");
 const txtaltura = document.querySelector("#alturatxt");
 const txtpeso = document.querySelector("#pesotxt");
