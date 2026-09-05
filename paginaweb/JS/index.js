@@ -31,9 +31,14 @@ const db = getFirestore(app);
 
 const params = new URLSearchParams(window.location.search);
 
-const maqueta = params.get("maq");
-
-console.log("maqueta:", maqueta);
+if(sessionStorage.getItem("maqueta") === null) {
+  const maqueta = params.get("maq");
+  console.log("maqueta:", maqueta);
+  sessionStorage.setItem("maqueta", maqueta);
+}else {
+  const maqueta = sessionStorage.getItem("maqueta");
+  console.log("maqueta:", maqueta);
+}
 
 //Verificamos que tenga iniciada la sesion
 
