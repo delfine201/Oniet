@@ -35,7 +35,7 @@ const params = new URLSearchParams(window.location.search);
 
 let maqueta;
 
-if(sessionStorage.getItem("maqueta") === null) {
+if(sessionStorage.getItem("maqueta") === 'null' || sessionStorage.getItem("maqueta") === null) {
   maqueta = params.get("maq");
   console.log("maqueta:", maqueta);
   sessionStorage.setItem("maqueta", maqueta);
