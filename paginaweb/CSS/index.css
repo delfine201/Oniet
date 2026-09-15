@@ -97,6 +97,8 @@ body {
 
   padding: 15px;
 
+  gap: 10px;
+
   display: grid;
 
   grid-template-rows: repeat(6, 1fr);
