@@ -14,6 +14,8 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+import { conectarBLE } from "./ble.js";
+
 // configuramos la pagina para que use firebase
 const firebaseConfig = {
 apiKey: "AIzaSyDJ6IwIxG5rkUfHIFqJ7PTuxJ2vnK66U68",
@@ -59,6 +61,14 @@ if(sesion === null) {
   alert("Primero Inicie Sesion")
   window.location.href = "login.html";
 }
+
+const referenciamaq = doc(db, "maquetas",  maqueta);
+
+const datosmaq = await getDoc(referenciamaq); 
+
+const maquetad = datosmaq.data();
+
+conectarBLE(maquetad);
 
 uid = sessionStorage.getItem("sesion");
 
