@@ -1,11 +1,57 @@
-let device;
-let characteristic;
+export async function conectarBLE(config) {
 
-const SERVICE_UUID = "0000ffe0-0000-1000-8000-00805f9b34fb";
-const CHARACTERISTIC_UUID = "0000ffe1-0000-1000-8000-00805f9b34fb";
+    try {
 
+        const dispositivos = await navigator.bluetooth.getDevices();
 
-try {
+        let device = dispositivos.find(
+            d => d.name === config.dispositivo
+        );
+
+        if (!device) {
+
+            console.log("🟡 Dispositivo no autorizado");
+
+            device = await navigator.bluetooth.requestDevice({
+                filters: [
+                    {
+                        services: [config.suuid]
+                    }
+                ]
+            });
+        } else {
+
+            console.log("🟢 Dispositivo previamente autorizado");
+        }
+
+        const server = await device.gatt.connect();
+
+        const service =
+            await server.getPrimaryService(config.suuid);
+
+        const characteristic =
+            await service.getCharacteristic(
+                config.cuuid
+            );
+
+        console.log("🟢 BLE verificado correctamente");
+
+        return {
+            device,
+            server,
+            service,
+            characteristic
+        };
+
+    } catch (error) {
+
+        console.error("❌ Error BLE:", error);
+
+        return null;
+    }
+}
+
+/*try {
 
     device = await navigator.bluetooth.requestDevice({
         filters: [
@@ -56,7 +102,7 @@ try {
     console.error(error);
 
     alert("❌ Error: " + error.message);
-}
+}*/
 
 /*document.getElementById("send").addEventListener("click", async () => {
 

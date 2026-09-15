@@ -14,6 +14,8 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+import { conectarBLE } from "./ble.js";
+
 // configuramos la pagina para que use firebase
 const firebaseConfig = {
 apiKey: "AIzaSyDJ6IwIxG5rkUfHIFqJ7PTuxJ2vnK66U68",
@@ -31,12 +33,14 @@ const db = getFirestore(app);
 
 const params = new URLSearchParams(window.location.search);
 
-if(sessionStorage.getItem("maqueta") === null) {
-  const maqueta = params.get("maq");
+let maqueta;
+
+if(sessionStorage.getItem("maqueta") === 'null' || sessionStorage.getItem("maqueta") === null) {
+  maqueta = params.get("maq");
   console.log("maqueta:", maqueta);
   sessionStorage.setItem("maqueta", maqueta);
 }else {
-  const maqueta = sessionStorage.getItem("maqueta");
+  maqueta = sessionStorage.getItem("maqueta");
   console.log("maqueta:", maqueta);
 }
 
@@ -68,6 +72,14 @@ if(sesion === null) {
   alert("Primero Inicie Sesion")
   window.location.href = "login.html";
 }
+
+const referenciamaq = doc(db, "maquetas",  maqueta);
+
+const datosmaq = await getDoc(referenciamaq); 
+
+const maquetad = datosmaq.data();
+
+conectarBLE(maquetad);
 
 uid = localStorage.getItem("sesion");
 
