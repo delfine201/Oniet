@@ -14,7 +14,7 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-import { conectarBLE } from "./ble.js";
+import { probarBLE } from "./ble.js";
 
 // configuramos la pagina para que use firebase
 const firebaseConfig = {
