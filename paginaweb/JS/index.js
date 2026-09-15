@@ -68,10 +68,19 @@ let enfermedades;
 let peso;
 let altura;
 
-if(sesion === null) {
-  alert("Primero Inicie Sesion")
+const alert = document.querySelector("#conectarbl");
+const connectButton = document.querySelector("#connect");
+const txtalert = document.querySelector("#txtalert");
+
+txtalert.textContent = "Primero Inicie Sesion";
+connectButton.textContent = "Iniciar Sesion";
+
+alert.style.display = "flex";
+
+connectButton.addEventListener("click", async () => {
   window.location.href = "login.html";
-}
+  alert.style.display = "none";
+});
 
 const referenciamaq = doc(db, "maquetas",  maqueta);
 
@@ -79,8 +88,8 @@ const datosmaq = await getDoc(referenciamaq);
 
 const maquetad = datosmaq.data();
 
-const alert = document.querySelector("#conectarbl");
-const connectButton = document.querySelector("#connect");
+txtalert.textContent = "Conectar bluetooth";
+connectButton.textContent = "Conectar";
 
 alert.style.display = "flex";
 

@@ -147,7 +147,7 @@ body {
 }
 
 .alert {
-  background: var(--special);
+  background: var(--surface);
 
   border: 1px dashed var(--border-special);
   border-radius: var(--radius);
@@ -171,6 +171,7 @@ button {
   background: var(--button);
 
   border-radius: 99px;
+  border: 1px dashed var(--border);
 
   display: flex;
   justify-content: center;
