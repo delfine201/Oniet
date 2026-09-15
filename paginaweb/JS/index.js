@@ -84,7 +84,7 @@ const connectButton = document.querySelector("#connect");
 
 alert.style.display = "flex";
 
-buttonConnect.addEventListener("click", async () => {
+connectButton.addEventListener("click", async () => {
   await probarBLE(maquetad);
   alert.style.display = "none";
 });
