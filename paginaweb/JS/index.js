@@ -79,7 +79,15 @@ const datosmaq = await getDoc(referenciamaq);
 
 const maquetad = datosmaq.data();
 
-await probarBLE(maquetad);
+const alert = document.querySelector("#conectarbl");
+const connectButton = document.querySelector("#connect");
+
+alert.style.display = "flex";
+
+buttonConnect.addEventListener("click", async () => {
+  await probarBLE(maquetad);
+  alert.style.display = "none";
+});
 
 uid = localStorage.getItem("sesion");
 

@@ -146,6 +146,44 @@ body {
   align-items: center;
 }
 
+.alert {
+  background: var(--special);
+
+  border: 1px dashed var(--border-special);
+  border-radius: var(--radius);
+
+  grid-row: 3/7;
+  grid-column: 2/7;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  z-index: 100;
+}
+
+button {
+  background: var(--button);
+
+  border-radius: 99px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 10px;
+}
+
+button.special {
+  background: var(--text-special);
+  color: var(--border-special);
+}
+
 h2 {
   grid-column: 1/8;
   margin: 30px 0 0 0;
