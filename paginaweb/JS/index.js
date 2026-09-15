@@ -40,9 +40,18 @@ if(sessionStorage.getItem("maqueta") === null) {
   console.log("maqueta:", maqueta);
 }
 
+const referenceble = doc(db, "maquetas", maqueta);
+const resultado = await getDoc(referenceble);
+const dates = resultado.data();
+
+sessionStorage.setItem("nble", dates.dispositivo);
+sessionStorage.setItem("mac", dates.mac);
+sessionStorage.setItem("suuid", dates.suuid);
+sessionStorage.setItem("cuuid", dates.cuuid);
+
 //Verificamos que tenga iniciada la sesion
 
-const sesion = sessionStorage.getItem("sesion");
+const sesion = localStorage.getItem("sesion");
 
 let uid;
 let nombre;
@@ -60,7 +69,7 @@ if(sesion === null) {
   window.location.href = "login.html";
 }
 
-uid = sessionStorage.getItem("sesion");
+uid = localStorage.getItem("sesion");
 
 const referencia = doc(db, "usuarios", uid);
 
