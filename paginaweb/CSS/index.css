@@ -157,8 +157,8 @@ h2 {
   grid-row: 1 ;
 }
 
-.person.date {
-  width: 100%;
+.person.date, .datess.date {
+  width: 100% ;
   text-align: center;
 }
 
