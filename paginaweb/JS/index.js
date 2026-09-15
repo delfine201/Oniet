@@ -79,7 +79,7 @@ const datosmaq = await getDoc(referenciamaq);
 
 const maquetad = datosmaq.data();
 
-await conectarBLE(maquetad);
+await probarBLE(maquetad);
 
 uid = localStorage.getItem("sesion");
 
