@@ -139,10 +139,11 @@ body {
   grid-row: 3/7;
   grid-column: 1/9;
 
-  display: grid;
+  display: flex;
 
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
 }
 
 h2 {
