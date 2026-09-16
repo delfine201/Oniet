@@ -37,7 +37,8 @@ export async function probarBLE(config) {
     } catch (error) {
 
         console.error("❌ BLE:", error);
-        return null;
+        const mensaje = error.message || "Error desconocido";
+        return mensaje;
     }
 }
 
