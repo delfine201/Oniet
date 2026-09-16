@@ -72,31 +72,34 @@ const alert = document.querySelector("#conectarbl");
 const connectButton = document.querySelector("#connect");
 const txtalert = document.querySelector("#txtalert");
 
-txtalert.textContent = "Primero Inicie Sesion";
-connectButton.textContent = "Iniciar Sesion";
+if (sesion === null) {
 
-alert.style.display = "flex";
+  txtalert.textContent = "Primero Inicie Sesion";
+  connectButton.textContent = "Iniciar Sesion";
 
-connectButton.addEventListener("click", async () => {
-  window.location.href = "login.html";
-  alert.style.display = "none";
-});
+  alert.style.display = "flex";
 
-const referenciamaq = doc(db, "maquetas",  maqueta);
+  connectButton.addEventListener("click", () => {
+    window.location.href = "login.html";
+  });
 
-const datosmaq = await getDoc(referenciamaq); 
+} else {
 
-const maquetad = datosmaq.data();
+  const referenciamaq = doc(db, "maquetas", maqueta);
+  const datosmaq = await getDoc(referenciamaq);
+  const maquetad = datosmaq.data();
 
-txtalert.textContent = "Conectar bluetooth";
-connectButton.textContent = "Conectar";
+  txtalert.textContent = "Conectar bluetooth";
+  connectButton.textContent = "Conectar";
 
-alert.style.display = "flex";
+  alert.style.display = "flex";
 
-connectButton.addEventListener("click", async () => {
-  await probarBLE(maquetad);
-  alert.style.display = "none";
-});
+  connectButton.addEventListener("click", async () => {
+    await probarBLE(maquetad);
+    alert.style.display = "none";
+  });
+
+}
 
 uid = localStorage.getItem("sesion");
 
