@@ -1,15 +1,12 @@
 #include <Wire.h>
-#include "MAX30100.h"
+#include "MAX30100_PulseOximeter.h"
 
-#define SAMPLING_RATE MAX30100_SAMPRATE_100HZ
+#define REPORTING_PERIOD_MS 1000
 
-#define IR_LED_CURRENT  MAX30100_LED_CURR_7_6MA
-#define RED_LED_CURRENT MAX30100_LED_CURR_7_6MA
+PulseOximeter pox;
 
-#define PULSE_WIDTH MAX30100_SPC_PW_1600US_16BITS
-#define HIGHRES_MODE true
-
-MAX30100 sensor;
+uint32_t tsLastReport = 0;
+float ultimoBPM = 0;
 
 void setup()
 {
@@ -17,28 +14,40 @@ void setup()
 
     Serial.println("Iniciando MAX30100...");
 
-    if (!sensor.begin()) {
-        Serial.println("ERROR al iniciar MAX30100");
+    if (!pox.begin()) {
+        Serial.println("ERROR al iniciar PulseOximeter");
         while (1);
     }
 
-    Serial.println("MAX30100 iniciado correctamente");
+    Serial.println("PulseOximeter iniciado correctamente");
 
-    sensor.setMode(MAX30100_MODE_SPO2_HR);
-    sensor.setLedsCurrent(IR_LED_CURRENT, RED_LED_CURRENT);
-    sensor.setLedsPulseWidth(PULSE_WIDTH);
-    sensor.setSamplingRate(SAMPLING_RATE);
-    sensor.setHighresModeEnabled(HIGHRES_MODE);
+    // LED IR con corriente baja
+    pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
+
+    // Callback cuando detecta un latido
+    pox.setOnBeatDetectedCallback([]() {
+        //Serial.println("LATIDO DETECTADO");
+    });
 }
 
 void loop()
 {
-    uint16_t ir, red;
+    // Actualizar continuamente
+    pox.update();
 
-    sensor.update();
+    float bpm = pox.getHeartRate();
 
-    while (sensor.getRawValues(&ir, &red)) {
-        Serial.println(ir);
-        delay(50);
+    // Guardar solamente valores razonables
+    if (bpm >= 40 && bpm <= 180) {
+        ultimoBPM = bpm;
+    }
+
+    // Mostrar cada segundo
+    if (millis() - tsLastReport >= REPORTING_PERIOD_MS)
+    {
+        Serial.print("BPM: ");
+        Serial.println(ultimoBPM, 1);
+
+        tsLastReport = millis();
     }
 }
