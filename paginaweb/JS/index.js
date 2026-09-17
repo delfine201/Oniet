@@ -197,12 +197,11 @@ navigation.addEventListener("click", () => {
 
 });
 
-if (document.activeElement !== navigation) {
-  setTimeout(() => {}, 1000);
+navigation.addEventListener("blur", () => {
   zone.classList.remove("active");
   icono = "menu";
   menu.setAttribute("name", icono);
-}
+});
 
 themebutton.addEventListener ("click", () => {
   if(document.documentElement.classList.contains("light")){
