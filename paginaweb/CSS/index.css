@@ -334,6 +334,11 @@ textarea:focus, input:focus {
   transform: rotate(180deg);
 }
 
+.theme ion-icon {
+  font-size: 100%;
+  color: var(--text);
+}
+
 /* =========================
    CONTENEDOR
 ========================= */
