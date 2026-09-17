@@ -454,7 +454,7 @@ textarea:focus, input:focus {
 ========================= */
 
 ion-icon {
-  font-size: 22px;
+  font-size: 140%;
   color: var(--text);
 }
 
