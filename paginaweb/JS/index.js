@@ -219,7 +219,7 @@ ble.addEventListener("click", async (event) => {
 
   event.preventDefault();
 
-  await import("./ble.js");
+  await probarBLE(maquetad);
 
 });
 
