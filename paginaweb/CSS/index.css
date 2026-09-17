@@ -326,15 +326,12 @@ textarea:focus, input:focus {
   transform: rotate(0deg);
 
   transition: transform .5s;
+
+  padding: 0;
 }
 
 .theme.active {
   transform: rotate(180deg);
-}
-
-.theme ion-icon {
-  font-size: 5rem;
-  color: var(--text);
 }
 
 /* =========================
