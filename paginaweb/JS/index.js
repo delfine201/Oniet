@@ -71,6 +71,7 @@ let altura;
 const alert = document.querySelector("#conectarbl");
 const connectButton = document.querySelector("#connect");
 const txtalert = document.querySelector("#txtalert");
+let maquetad;
 
 if (sesion === null) {
 
@@ -87,7 +88,7 @@ if (sesion === null) {
 
   const referenciamaq = doc(db, "maquetas", maqueta);
   const datosmaq = await getDoc(referenciamaq);
-  const maquetad = datosmaq.data();
+  maquetad = datosmaq.data();
 
   txtalert.textContent = "Conectar bluetooth";
   connectButton.textContent = "Conectar";
