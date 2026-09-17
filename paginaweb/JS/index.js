@@ -70,6 +70,7 @@ let altura;
 
 const alert = document.querySelector("#conectarbl");
 const connectButton = document.querySelector("#connect");
+const cancelButton = document.querySelector("#cancel");
 const txtalert = document.querySelector("#txtalert");
 let maquetad;
 
@@ -101,6 +102,10 @@ if (sesion === null) {
   });
 
 }
+
+cancelButton.addEventListener("click", () => {
+  alert.style.display = "none";
+});
 
 uid = localStorage.getItem("sesion");
 
