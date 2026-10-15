@@ -1,0 +1,30 @@
+:root{
+  --radius: 15px;
+  --padding: 15px;
+}
+
+:root.dark {
+
+  --background: #241F1C;       /* Fondo general */
+  --surface:    #302925;       /* Tarjetas / contenedores */
+  --panel:      #3B322D;       /* Paneles / inputs */
+  --special:    #D49A72;       /* Turquesa principal */
+  --button:     #91A88B;
+  --border:     #594A40;       /* Bordes */
+  --border-special: #997A70;   /* Rojo: alertas / acciones críticas */
+  --text:       #F4EEE7;       /* Texto principal */
+  --text-special: #D3C3B4;     /* Texto secundario / acentos */
+
+}
+
+:root.light {
+  --background: #EEE9DF;      /* Fondo crema */
+  --surface: #FBF8F2;         /* Tarjetas */
+  --panel: #E8DED2;            /* Paneles e inputs */
+  --special: #C47B52;          /* Acento terracota */
+  --button: #71866F;           /* Botones cálidos */
+  --border: #C9B8A6;           /* Bordes suaves */
+  --border-special: #C99886;   /* Acento más oscuro */
+  --text: #302A26;             /* Texto principal */
+  --text-special: #796A5F;     /* Texto secundario */
+}

@@ -4,7 +4,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebas
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 import {
@@ -31,37 +32,56 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+let iniciado = false;
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Sesión iniciada. UID:", user.uid);
+    iniciado = true;
+  } else {
+    console.log("No hay una sesión iniciada");
+  }
+});
+
 const params = new URLSearchParams(window.location.search);
 
-let maqueta;
+const maqDeURL = params.get("maq");
+let maqueta = maqDeURL || sessionStorage.getItem("maqueta");
+let referenceble;
+let resultado;
+let resl = false;
 
-if(sessionStorage.getItem("maqueta") === 'null' || sessionStorage.getItem("maqueta") === null) {
-  maqueta = params.get("maq");
-  console.log("maqueta:", maqueta);
-  sessionStorage.setItem("maqueta", maqueta);
-}else {
-  maqueta = sessionStorage.getItem("maqueta");
-  console.log("maqueta:", maqueta);
+if (maqueta === "null" || maqueta === "") {
+  sessionStorage.removeItem("maqueta");
+  maqueta = null;
 }
 
-const referenceble = doc(db, "maquetas", maqueta);
-const resultado = await getDoc(referenceble);
-const dates = resultado.data();
+if (maqueta === null) {
+  console.warn("No hay una maqueta indicada en la URL ni guardada.");
+} else {
+  sessionStorage.setItem("maqueta", maqueta);
+  console.log("maqueta:", maqueta);
 
-sessionStorage.setItem("nble", dates.dispositivo);
-sessionStorage.setItem("mac", dates.mac);
-sessionStorage.setItem("suuid", dates.suuid);
-sessionStorage.setItem("cuuid", dates.cuuid);
+  referenceble = doc(db, "maquetas", maqueta);
+  resultado = await getDoc(referenceble);
+  resl = true;
+  if(resultado.exists()){  
+    const dates = resultado.data();
+
+    sessionStorage.setItem("nble", dates.dispositivo);
+    sessionStorage.setItem("mac", dates.mac);
+    sessionStorage.setItem("suuid", dates.suuid);
+    sessionStorage.setItem("cuuid", dates.cuuid);
+  }
+}
 
 //Verificamos que tenga iniciada la sesion
-
-const sesion = localStorage.getItem("sesion");
-
 let uid;
 let nombre;
 let apellido;
 let dni;
 let fechaNacimiento;
+let edad;
 let email;
 let alergias;
 let enfermedades; 
@@ -72,9 +92,16 @@ const alert = document.querySelector("#conectarbl");
 const connectButton = document.querySelector("#connect");
 const cancelButton = document.querySelector("#cancel");
 const txtalert = document.querySelector("#txtalert");
+
+const txtnombre = document.querySelector("#nombretxt");
+const txtdni = document.querySelector("#dnitxt");
+const txtaltura = document.querySelector("#alturatxt");
+const txtpeso = document.querySelector("#pesotxt");
+const txtedad = document.querySelector("#edadtxt");
+
 let maquetad;
 
-if (sesion === null) {
+if (iniciado === false) {
 
   txtalert.textContent = "Primero Inicie Sesion";
   connectButton.textContent = "Iniciar Sesion";
@@ -86,70 +113,66 @@ if (sesion === null) {
   });
 
 } else {
+  /*if(resl){
+    if(resultado.exists()){
+      maquetad = resultado.data();
 
-  const referenciamaq = doc(db, "maquetas", maqueta);
-  const datosmaq = await getDoc(referenciamaq);
-  maquetad = datosmaq.data();
+      txtalert.textContent = "Conectar bluetooth";
+      connectButton.textContent = "Conectar";
 
-  txtalert.textContent = "Conectar bluetooth";
-  connectButton.textContent = "Conectar";
+      alert.style.display = "flex";
 
-  alert.style.display = "flex";
+      connectButton.addEventListener("click", async () => {
+        await probarBLE(maquetad);
+        alert.style.display = "none";
+      });
+    }
+  }*/
+  uid = user.uid;
 
-  connectButton.addEventListener("click", async () => {
-    await probarBLE(maquetad);
-    alert.style.display = "none";
-  });
+  const referencia = doc(db, "usuarios", uid);
+
+  const datos = await getDoc(referencia);
+
+  if (datos.exists()) {
+    const usuario = datos.data();
+    nombre = usuario.nombre;
+    apellido = usuario.apellido;
+    dni = usuario.dni;
+    fechaNacimiento = usuario.fechaNacimiento;
+    email = usuario.email;
+    alergias = usuario.alergias;
+    enfermedades = usuario.enfermedades;
+    peso = usuario.peso;
+    altura = usuario.altura;
+  }
+  console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
+
+  txtnombre.textContent = nombre;
+  txtdni.textContent = dni;
+  txtaltura.textContent = altura;
+  txtpeso.textContent = peso;
+
+  const nacimiento = new Date(fechaNacimiento);
+  const hoy = new Date();
+
+  edad = hoy.getFullYear() - nacimiento.getFullYear();
+
+  const mes = hoy.getMonth() - nacimiento.getMonth();
+
+  if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+      edad--;
+  }
+
+  txtedad.textContent = edad;
 
 }
 
-cancelButton.addEventListener("click", () => {
+/*cancelButton.addEventListener("click", () => {
   alert.style.display = "none";
-});
+});*/
 
-uid = localStorage.getItem("sesion");
 
-const referencia = doc(db, "usuarios", uid);
-
-const datos = await getDoc(referencia);
-
-if (datos.exists()) {
-  const usuario = datos.data();
-  nombre = usuario.nombre;
-  apellido = usuario.apellido;
-  dni = usuario.dni;
-  fechaNacimiento = usuario.fechaNacimiento;
-  email = usuario.email;
-  alergias = usuario.alergias;
-  enfermedades = usuario.enfermedades;
-  peso = usuario.peso;
-  altura = usuario.altura;
-}
-console.log(uid, nombre, apellido, dni, fechaNacimiento, email, alergias, enfermedades, peso, altura);
-
-const txtnombre = document.querySelector("#nombretxt");
-const txtdni = document.querySelector("#dnitxt");
-const txtaltura = document.querySelector("#alturatxt");
-const txtpeso = document.querySelector("#pesotxt");
-const txtedad = document.querySelector("#edadtxt");
-
-txtnombre.textContent = nombre;
-txtdni.textContent = dni;
-txtaltura.textContent = altura;
-txtpeso.textContent = peso;
-
-const nacimiento = new Date(fechaNacimiento);
-const hoy = new Date();
-
-let edad = hoy.getFullYear() - nacimiento.getFullYear();
-
-const mes = hoy.getMonth() - nacimiento.getMonth();
-
-if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-    edad--;
-}
-
-txtedad.textContent = edad;
 
 // Creamos los objetos segund sus id o sus clases
 const zone = document.querySelector(".zone");
